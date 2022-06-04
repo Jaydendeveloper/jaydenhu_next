@@ -52,16 +52,19 @@ const db = getFirestore();
 const colRef = collection(db, 'posts');
 
 
-auth.onAuthStateChanged(function(user) {
-    if (!user) {
-      router.push('/login')
-    } else {
-        setTimeout(() => {
-            const userplace = document.querySelector('.user')
-            userplace.innerHTML = `Welcome, ${user.email}`
-        }, 20)
-    }
-  });
+    useEffect(() => {
+        auth.onAuthStateChanged(function(user) {
+        if (!user) {
+            router.push('/login')
+          } else {
+              setTimeout(() => {
+                  const userplace = document.querySelector('.user')
+                  userplace.innerHTML = `Welcome, ${user.email}`
+              }, 20)
+          }
+        },[]);
+    })
+    
   useEffect(() => {
     const q = query(colRef, orderBy('created_at'))
 
