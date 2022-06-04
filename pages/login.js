@@ -5,7 +5,7 @@ import {
     signInWithEmailAndPassword,
   } from 'firebase/auth'
 import { useState, useEffect, handleSubmit } from "react";
-import Link from 'next/Link'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { HomeIcon } from '@heroicons/react/outline'
 

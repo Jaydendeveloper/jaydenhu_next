@@ -1,5 +1,5 @@
 import Image from 'next/image'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { UserCircleIcon } from '@heroicons/react/outline'
 import { useState } from "react"
 

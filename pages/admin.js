@@ -6,7 +6,7 @@ import {
   } from 'firebase/auth'
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
-import Link from 'next/Link'
+import Link from 'next/link'
 import { HomeIcon, UserCircleIcon } from "@heroicons/react/outline";
 import { useState } from "react";
 import {
