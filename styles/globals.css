@@ -6,7 +6,9 @@ body{
   background-color: #121212;
   overflow-x: hidden;
 }
-
+button{
+  outline: none;
+}
 
 .pop-out{
   transition: 0.15s;

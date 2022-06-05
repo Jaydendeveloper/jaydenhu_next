@@ -13,8 +13,8 @@ const [loading, setLoading] = useState(false)
     return (
         <>
             <div className='header h-14 bg-transparent border-none text-white'>
-                <h4 className='absolute py-4 left-4 text-xl'><Link href={'/'}><a>Jayden.hu</a></Link></h4>
-                <button className='absolute right-4' onClick={()=> setLoading(true)}>
+                <h4 className='absolute py-4 left-4 text-xl outline-none'><Link href={'/'}><a className='outline-none'>Jayden.hu</a></Link></h4>
+                <button className='absolute right-4 outline-none' onClick={()=> setLoading(true)}>
                     <Link href={'/login'}>
                         <div className='p-1'>
                             <a className='p-1'>
@@ -27,7 +27,7 @@ const [loading, setLoading] = useState(false)
                                 </svg>
                             </div>
                             }                           
-                            {!loading && <div className='pb-2 mb-10 border-b-2 border-red-500 hover:opacity-70'>Admin</div>
+                            {!loading && <div className='pb-2 mb-10 border-b-2 border-red-500 hover:opacity-70'>Log in</div>
                             }
             </a>
                          </div>

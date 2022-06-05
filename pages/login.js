@@ -62,14 +62,12 @@ const [loading, setLoading] = useState(false);
                         .then(cred => {
                             console.log('user logged in:', cred.user)
                             loginform.reset()
-                            setLoading(false)
                         })
                         .then(() => {
                             auth.onAuthStateChanged(function(user) {
                                 if (user) {
                                 router.push('/admin')
                                 }
-                                setLoading(false)
                             });
                         })
                         .catch(err => {

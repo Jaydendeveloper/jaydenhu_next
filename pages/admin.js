@@ -2,7 +2,10 @@ import { initializeApp } from "firebase/app";
 import {
     getAuth,
     signOut,
-    onAuthStateChanged
+    onAuthStateChanged,
+    updateProfile,
+    updateEmail,
+    updatePassword
   } from 'firebase/auth'
 import { useEffect } from "react";
 import { useRouter } from 'next/router'
@@ -46,6 +49,12 @@ const [showPostsBtn, setShowPostsBtn] = useState(true)
 const [error, setError] = useState(null)
 const [registration, setRegistration] = useState(false)
 const [options, setOptions] = useState(false)
+const [userOpt, setuserOpt] = useState(false)
+const [usernameError, setUsernameError] = useState(null)
+const [photoError, setPhotoError] = useState(null)
+const [emailError, setEmailError] = useState(null)
+const [passwordError, setPasswordError] = useState(null)
+const [success, setSuccess] = useState(false)
 
 
 const db = getFirestore();
@@ -59,7 +68,7 @@ const colRef = collection(db, 'posts');
           } else {
               setTimeout(() => {
                   const userplace = document.querySelector('.user')
-                  userplace.innerHTML = `Welcome, ${user.email}`
+                  userplace.innerHTML = `Welcome, ${user.displayName || user.email}`
               }, 20)
           }
         },[]);
@@ -81,20 +90,117 @@ const colRef = collection(db, 'posts');
     return (
         <div>
             <div className='header h-14 bg-transparent border-none text-white'>
+
                 <Link href={'/'}>
                         <HomeIcon className='text-red-500 absolute cursor-pointer h-10 left-[55px] top-5'/>
                     </Link>
+
                 
-                <button className='absolute px-2 top-4 right-4 border-b-2 py-1 border-red-500 text-white hover:opacity-70'>
+                <button onClick={() => {setuserOpt(!userOpt); console.log(user)}} className='absolute px-2 top-4 right-4 border-b-2 py-1 border-red-500 text-white hover:opacity-70 outline-none pop-out'>
                         <div>
-                            <a onClick={() => console.log(user)} className='user ml-2 mt-1 mb-1 mr-2'></a>
+                            <a className='user ml-2 mt-1 mb-1 mr-2'></a>
                         </div>
                 </button>
-                <button className='absolute px-2 top-4 border-b-2 border-red-500 py-1 text-white right-[280px] hover:opacity-70 pop-out'
+
+
+                {userOpt &&
+                <div className="absolute right-2 top-[60px] bg-transparent border-2 border-red-500 rounded-md w-[400px">
+                <div className="ml-5 mr-5">
+                    <h1 className="text-center mt-2 mb-3">User Info</h1>
+                    <p className="mb-1">Username: {user.displayName}</p>
+                    <p className="mb-1">Email: {user.email}</p>
+                    <p className="mb-1">Profile picture: {user.photoURL}</p>
+                    <p className="mb-1">User created: {user.metadata.creationTime}</p>
+                    <p className="mb-1">Last login: {user.metadata.lastSignInTime}</p>
+                    <p className="mb-1">Provider: {user.providerId}</p>
+                    <p className="mb-1">User ID: {user.uid}</p>
+                </div>
+                <h1 className="text-center mt-2 mb-3">Update user</h1>
+                <form className="userOptForm text-center">
+                    <label>Display name:</label><br />
+                    <input className="mt-5 text-black" type="text" name="username"/><br />
+                    {usernameError && usernameError}
+
+                    <label>Profile picture (link):</label><br />
+                    <input className="mt-5 text-black" type="text" name="photo"/><br />
+                    {photoError && photoError}
+
+                    <label>Email:</label><br />
+                    <input className="mt-5 text-black" type="text" name="email"/><br />
+                    {emailError && emailError}
+
+                    <label>Password:</label><br />
+                    <input className="mt-5 mb-5 text-black" type="password" name="password"/><br />
+                    {passwordError && passwordError}
+
+                    <button className="mb-5 bg-red-500 outline-none pop-out rounded-md p-2" onClick={(e) => 
+                    {
+                        const userOptform = document.querySelector('.userOptForm')
+                        e.preventDefault();
+                        if(userOptform.username.value != ""){
+                            updateProfile(auth.currentUser, {
+                                displayName: userOptform.username.value,
+                            })
+                            .then(() => {
+                                userOptform.reset()
+                                setSuccess(true)
+                                setTimeout(() => {
+                                    setSuccess(false)
+                                }, 2000)
+                              }).catch((err) => {
+                                setUsernameError(err)
+                              });
+                        }
+                        if(userOptform.photo.value != ""){
+                            updateProfile(auth.currentUser, {
+                                photoURL: userOptform.photo.value,
+                            })
+                            .then(() => {
+                                userOptform.reset()
+                                setSuccess(true)
+                                setTimeout(() => {
+                                    setSuccess(false)
+                                }, 2000)
+                              }).catch((err) => {
+                                setPhotoError(err)
+                              });
+                        }
+                        if(userOptform.email.value != ""){
+                            updateEmail(auth.currentUser, userOptform.email.value)
+                            .then(() => {
+                                userOptform.reset()
+                                setSuccess(true)
+                                setTimeout(() => {
+                                    setSuccess(false)
+                                }, 2000)
+                              }).catch((err) => {
+                                setPasswordError(err)
+                              });
+                        }
+                        if(userOptform.password.value != ""){
+                            updatePassword(auth.currentUser, userOptform.password.value)
+                            .then(() => {
+                                userOptform.reset()
+                                setSuccess(true)
+                                setTimeout(() => {
+                                    setSuccess(false)
+                                }, 2000)
+                              }).catch((err) => {
+                                setEmailError(err)
+                              });
+                        }
+
+                    }}>Update</button>
+                    {success && <div className="text-green-500 mb-5">Updated!</div>}
+                </form>
+                </div>
+                }
+
+
+                <button className='absolute top-4 border-b-2 border-red-500 py-1 text-white right-[200px] hover:opacity-70 pop-out outline-none'
                 onClick={() => {
                     signOut(auth)
                     .then(() => {
-                        console.log('user signed out')
                         setLogout(false)
                         router.push('/login')
                     })
@@ -106,14 +212,18 @@ const colRef = collection(db, 'posts');
             </div>
             <nav className="absolute mt-0 text-white text-xl">
                 <ul className="ml-0 mt-10 h-[100vh] w-[150px]">
-                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out" onClick={() =>
+                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out outline-none" onClick={() =>
+
+                        // NEW POST BTN
                             {
                             setDeletePost(false), setNewPost(!newPost),setEditPost(false), setError(null), setOptions(false)
                             }
                         }>
                         New post
                     </button>
-                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out" onClick={() =>
+                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out outline-none" onClick={() =>
+
+                        //DELETE POST BTN
                             {
                             setNewPost(false), setDeletePost(!deletePost), setEditPost(false), setError(null), setOptions(false)
                             if(!deletePost){
@@ -139,7 +249,11 @@ const colRef = collection(db, 'posts');
                         }>
                         Delete post
                     </button>
-                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out" onClick={() => {
+                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out outline-none" onClick={() => {
+
+
+                        // EDIT POST BTN
+
                         setNewPost(false), setDeletePost(false), setEditPost(!editPost), setError(null),setOptions(false)
                         if(!editPost){
                         setTimeout(() => {
@@ -164,7 +278,9 @@ const colRef = collection(db, 'posts');
                     }}>
                         Edit posts
                     </button>
-                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out" onClick={() =>
+                    <button className="px-4 py-3 text-center hover:bg-[black] cursor-pointer pop-out outline-none" onClick={() =>
+
+                            // OPTIONS BTN
                             {
                             setDeletePost(false), setOptions(!options),setEditPost(false), setError(null)
                             }
@@ -177,6 +293,8 @@ const colRef = collection(db, 'posts');
 
 
                 {newPost &&
+
+                // NEW POST
                 <div className="flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
                     <form className="newPostForm relative mt-24 rounded text-white py-10 px-6 md:mt-0 md:max-w-md md:px-14">
                     <h2 className="text-4xl font-semibold text-red-500 mb-5">New post</h2>
@@ -188,7 +306,7 @@ const colRef = collection(db, 'posts');
                         <textarea className="text-black outline-none px-1 rounded-md mb-4" type="text" name="content"/><br />
                         <label className="inline-block w-full mb-1">Link:</label><br />
                         <input className="text-black outline-none px-1 rounded-md mb-4" type="text" name="link"/><br />
-                        <button type="submit" className="newPostSubmit w-full rounded bg-red-500 outline-none py-3 font-semibold hover:opacity-80 pop-out" onClick={(e) => 
+                        <button type="submit" className="newPostSubmit w-full rounded bg-red-500 outline-none py-3 font-semibold hover:opacity-80 pop-out outline-none" onClick={(e) => 
                         {
                             e.preventDefault();
 
@@ -226,6 +344,8 @@ const colRef = collection(db, 'posts');
 
 
                 {deletePost &&
+
+                //DELETE POST
                 <>
                  <center>
                  <h2 className="text-4xl font-semibold text-red-500 mb-5">Delete post</h2>
@@ -248,7 +368,7 @@ const colRef = collection(db, 'posts');
                     <form className="deletePostForm text-white">
                         <label className="inline-block w-full">Post id:</label><br />
                         <input className="text-black outline-none h-[30px] px-1 mr-4" type="text" name="id"/>
-                        <button type="submit" className="deletePostBtn w-[150px] h-[50px] rounded bg-red-500 outline-none py-3 font-semibold pop-out"  onClick={(e) => 
+                        <button type="submit" className="deletePostBtn w-[150px] h-[50px] rounded bg-red-500 py-3 font-semibold pop-out outline-none"  onClick={(e) => 
                         {
                             e.preventDefault()
                             const deletePostForm = document.querySelector('.deletePostForm');
@@ -289,7 +409,11 @@ const colRef = collection(db, 'posts');
                     </div>
                 </>
                  }
+
+
+
                  {editPost &&
+                 // EDIT POST
                  <>
                  <center>
                  <h2 className="text-4xl font-semibold text-red-500 mb-5">Edit post</h2>
@@ -324,7 +448,7 @@ const colRef = collection(db, 'posts');
                         <label className="mr-3 text-white">Link:</label>
                         <input className="mr-3" type="text" name="link"/>
 
-                        <button className="w-[200px] rounded bg-red-500 text-white outline-none py-3 font-semibold hover:opacity-80 mt-3 ml-10 pop-out" onClick={()=> {
+                        <button className="w-[105px] rounded bg-red-500 text-white outline-none py-3 font-semibold hover:opacity-80 mt-3 ml-2 pop-out" onClick={()=> {
                             const editPostForm = document.querySelector('.editPostForm')
                             editPostForm.addEventListener('submit', (e) => {
                             e.preventDefault()
@@ -352,7 +476,7 @@ const colRef = collection(db, 'posts');
                             })
                             
                         }}>Edit</button>
-                        <button className="refresh pop-up w-[150px] h-[50px] rounded bg-blue-500 text-white outline-none py-3 font-semibold pop-out ml-2" 
+                        <button className="refresh pop-up w-[105px] rounded bg-blue-500 text-white outline-none py-3 font-semibold pop-out ml-2" 
                         onClick={(e) => {
                             e.preventDefault()
                             const postList = document.querySelector('.posts')
@@ -378,7 +502,9 @@ const colRef = collection(db, 'posts');
                     </div>
                 </>
                 }
+
                 {options &&
+                //OPTIONS
                     <>
                     <form>
                     <label className="text-white" htmlFor="switch"> Toggle Registration</label>
@@ -392,6 +518,7 @@ const colRef = collection(db, 'posts');
                     </form>       
                     </>
                 }
+
                 </div>
             </div>
     );
