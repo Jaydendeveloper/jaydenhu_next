@@ -38,7 +38,7 @@ const [loading, setLoading] = useState(false);
         <div>
             <div>
                 <Link href={'/'}>
-                    <HomeIcon className='text-red-500 absolute cursor-pointer h-10 left-5 top-5'/>
+                    <HomeIcon className='text-red-500 absolute cursor-pointer h-10 left-5 top-5 pop-out'/>
                 </Link>
             </div>
             <div className="realative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">

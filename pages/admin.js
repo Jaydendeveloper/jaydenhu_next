@@ -197,7 +197,7 @@ const colRef = collection(db, 'posts');
                 }
 
 
-                <button className='absolute top-4 border-b-2 border-red-500 py-1 text-white right-[200px] hover:opacity-70 pop-out outline-none'
+                <button className='absolute right-[370px] top-4 border-b-2 border-red-500 py-1 text-white  hover:opacity-70 pop-out outline-none'
                 onClick={() => {
                     signOut(auth)
                     .then(() => {
