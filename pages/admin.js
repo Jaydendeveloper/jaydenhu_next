@@ -69,7 +69,7 @@ const colRef = collection(db, 'posts');
               setTimeout(() => {
                   const userplace = document.querySelector('.user')
                   userplace.innerHTML = `Welcome, ${user.displayName || user.email}`
-              }, 20)
+              }, 30)
           }
         },[]);
     })
@@ -197,7 +197,7 @@ const colRef = collection(db, 'posts');
                 }
 
 
-                <button className='absolute right-[370px] top-4 border-b-2 border-red-500 py-1 text-white  hover:opacity-70 pop-out outline-none'
+                <button className='absolute right-[350px] top-4 border-b-2 border-red-500 py-1 text-white  hover:opacity-70 pop-out outline-none'
                 onClick={() => {
                     signOut(auth)
                     .then(() => {
@@ -230,17 +230,21 @@ const colRef = collection(db, 'posts');
                                 setTimeout(() => {
                                 const postList = document.querySelector('.posts')
                                  currentPosts.forEach(post => {
-                                    const createdAt = post.created_at.seconds*1000
+                                    const createdAtYear = new Date(post.created_at.seconds*1000).getFullYear()
+                                    const createdAtMonth = new Date(post.created_at.seconds*1000).getMonth()
+                                    const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
+                                    const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                                    const createdAtMinutes = new Date(post.created_at.seconds*1000).getMinutes()
 
-                                    postList.insertAdjacentHTML("beforeend",
-                                     `
-                                     <tr className="border-b-2 border-red-500 text-white">
-                                     <td className="">${post.title}</td>
-                                     <td className="">${post.author}</td>
-                                     <td className="">${post.id}</td>
-                                     <td className="">${createdAt}.</td>
-                                    </tr>
-                                    `)
+                                        postList.insertAdjacentHTML("beforeend",
+                                        `
+                                        <tr className="border-b-2 border-red-500 text-white">
+                                        <td className="">${post.title}</td>
+                                        <td className="">${post.author}</td>
+                                        <td className="">${post.id}</td>
+                                        <td className="">${createdAtYear}.${createdAtMonth}.${createdAtDate} ${createdAtHours}:${createdAtMinutes}</td>
+                                        </tr>
+                                        `)
                             })
                             }, 10)} else{
                                 setEditPost(!deletePost)
@@ -260,17 +264,22 @@ const colRef = collection(db, 'posts');
                         const postList = document.querySelector('.posts')
                         setShowPostsBtn(false)
                         currentPosts.forEach(post => {
-                        const createdAt = post.created_at.seconds*1000
 
-                        postList.insertAdjacentHTML("beforeend",
-                         `
-                         <tr className="border-b-2 border-gray-600 text-white">
-                         <td className="">${post.title}</td>
-                         <td className="">${post.author}</td>
-                         <td className="">${post.id}</td>
-                         <td className="">${createdAt}.</td>
-                        </tr>
-                        `)
+                        const createdAtYear = new Date(post.created_at.seconds*1000).getFullYear()
+                        const createdAtMonth = new Date(post.created_at.seconds*1000).getMonth()
+                        const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
+                        const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                        const createdAtMinutes = new Date(post.created_at.seconds*1000).getMinutes()
+
+                            postList.insertAdjacentHTML("beforeend",
+                             `
+                             <tr className="border-b-2 border-red-500 text-white">
+                             <td className="">${post.title}</td>
+                             <td className="">${post.author}</td>
+                             <td className="">${post.id}</td>
+                             <td className="">${createdAtYear}.${createdAtMonth}.${createdAtDate} ${createdAtHours}:${createdAtMinutes}</td>
+                            </tr>
+                            `)
                     })
                     }, 10)} else{
                         setEditPost(!editPost)
@@ -391,7 +400,11 @@ const colRef = collection(db, 'posts');
 
                             currentPosts.forEach(post => {
 
-                            const createdAt = post.created_at.seconds*1000
+                            const createdAtYear = new Date(post.created_at.seconds*1000).getFullYear()
+                            const createdAtMonth = new Date(post.created_at.seconds*1000).getMonth()
+                            const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
+                            const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                            const createdAtMinutes = new Date(post.created_at.seconds*1000).getMinutes()
 
                                 postList.insertAdjacentHTML("beforeend",
                                  `
@@ -399,7 +412,7 @@ const colRef = collection(db, 'posts');
                                  <td className="">${post.title}</td>
                                  <td className="">${post.author}</td>
                                  <td className="">${post.id}</td>
-                                 <td className="">${createdAt}.</td>
+                                 <td className="">${createdAtYear}.${createdAtMonth}.${createdAtDate} ${createdAtHours}:${createdAtMinutes}</td>
                                 </tr>
                                 `)
                         })
@@ -443,17 +456,17 @@ const colRef = collection(db, 'posts');
                         <input className="" type="text" name="author"/><br />
 
                         <label className="mr-3 text-white">Content:</label>
-                        <input className="mr-3" type="text" name="content"/>
+                        <textarea className="mr-3 mt-5 h-[23px]" type="text" name="content"/>
 
                         <label className="mr-3 text-white">Link:</label>
-                        <input className="mr-3" type="text" name="link"/>
+                        <input className="mr-0" type="text" name="link"/>
 
                         <button className="w-[105px] rounded bg-red-500 text-white outline-none py-3 font-semibold hover:opacity-80 mt-3 ml-2 pop-out" onClick={()=> {
                             const editPostForm = document.querySelector('.editPostForm')
                             editPostForm.addEventListener('submit', (e) => {
                             e.preventDefault()
 
-                            if(editPostForm.id.value == "" || editPostForm.title.value == "" || editPostForm.content.value == "" || editPostForm.link.value == "" || editPostForm.author.value == ""){
+/*                             if(editPostForm.id.value == "" || editPostForm.title.value == "" || editPostForm.content.value == "" || editPostForm.link.value == "" || editPostForm.author.value == ""){
                                 setError("A field is left empty")
                             } else{
 
@@ -471,8 +484,53 @@ const colRef = collection(db, 'posts');
                             .catch((err) => {
                                 setError(err.message)
                             })
-                            }
+                            } */
+                            const docRef = doc(db, 'posts', editPostForm.id.value)
 
+                            if(editPostForm.title.value != ""){
+                                updateDoc(docRef, {
+                                    title: editPostForm.title.value
+                                })
+                                .then(() => {
+                                    editPostForm.reset()
+                                })
+                                .catch((err) => {
+                                    setError(err.message)
+                                })
+                            }
+                            if(editPostForm.author.value != ""){
+                                updateDoc(docRef, {
+                                    link: editPostForm.link.value
+                                })
+                                .then(() => {
+                                    editPostForm.reset()
+                                })
+                                .catch((err) => {
+                                    setError(err.message)
+                                })
+                            }
+                            if(editPostForm.content.value != ""){
+                                updateDoc(docRef, {
+                                    content: editPostForm.content.value
+                                })
+                                .then(() => {
+                                    editPostForm.reset()
+                                })
+                                .catch((err) => {
+                                    setError(err.message)
+                                })
+                            }
+                            if(editPostForm.link.value != ""){
+                                updateDoc(docRef, {
+                                    link: editPostForm.link.value
+                                })
+                                .then(() => {
+                                    editPostForm.reset()
+                                })
+                                .catch((err) => {
+                                    setError(err.message)
+                                })
+                            }
                             })
                             
                         }}>Edit</button>
@@ -484,7 +542,11 @@ const colRef = collection(db, 'posts');
 
                             currentPosts.forEach(post => {
 
-                            const createdAt = post.created_at.seconds*1000
+                            const createdAtYear = new Date(post.created_at.seconds*1000).getFullYear()
+                            const createdAtMonth = new Date(post.created_at.seconds*1000).getMonth()
+                            const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
+                            const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                            const createdAtMinutes = new Date(post.created_at.seconds*1000).getMinutes()
 
                                 postList.insertAdjacentHTML("beforeend",
                                  `
@@ -492,7 +554,7 @@ const colRef = collection(db, 'posts');
                                  <td className="">${post.title}</td>
                                  <td className="">${post.author}</td>
                                  <td className="">${post.id}</td>
-                                 <td className="">${createdAt}.</td>
+                                 <td className="">${createdAtYear}.${createdAtMonth}.${createdAtDate} ${createdAtHours}:${createdAtMinutes}</td>
                                 </tr>
                                 `)
                         })
