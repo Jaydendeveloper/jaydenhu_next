@@ -61,15 +61,6 @@ const [screenLoading, setScreenLoading] = useState(false)
 const db = getFirestore();
 const colRef = collection(db, 'posts');
 
-if(screenLoading == true){
-    const body = document.body
-    body.style.overflowY = "hidden";
-} else {
-    const body = document.body
-    body.style.overflowY = "scroll";
-}
-
-
     useEffect(() => {
         auth.onAuthStateChanged(function(user) {
         if (!user) {
@@ -86,6 +77,18 @@ if(screenLoading == true){
         },[]);
     })
     
+    useEffect(() =>{
+        if(screenLoading == true){
+            const body = document.body
+            body.style.overflowY = "hidden";
+        } else {
+            const body = document.body
+            body.style.overflowY = "scroll";
+        }
+    },[])
+
+
+
   useEffect(() => {
     const q = query(colRef, orderBy('created_at'))
 

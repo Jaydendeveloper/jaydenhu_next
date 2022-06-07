@@ -34,7 +34,8 @@ const [loading, setLoading] = useState(false);
         console.log(user)
        }
    },[])
-    return (
+   
+return (
         <div>
             <div>
                 <Link href={'/'}>
