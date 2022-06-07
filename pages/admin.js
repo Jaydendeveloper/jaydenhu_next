@@ -40,7 +40,6 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth();
 const router = useRouter()
 const user = auth.currentUser;
-const body = document.body
 const [logout, setLogout] = useState(false)
 const [newPost, setNewPost] = useState(false)
 const [deletePost, setDeletePost] = useState(false)
@@ -63,8 +62,10 @@ const db = getFirestore();
 const colRef = collection(db, 'posts');
 
 if(screenLoading == true){
+    const body = document.body
     body.style.overflowY = "hidden";
 } else {
+    const body = document.body
     body.style.overflowY = "scroll";
 }
 
@@ -77,7 +78,7 @@ if(screenLoading == true){
             const userplace = document.querySelector('.user')
 
             if(userplace == null){
-                setscreenLoading(true)
+                setScreenLoading(true)
             }else if(userplace !== null){
                 userplace.innerHTML = `Welcome, ${user.displayName || user.email}`
             } 

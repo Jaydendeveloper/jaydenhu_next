@@ -1,13 +1,50 @@
+import { initializeApp } from "firebase/app";
 import Image from 'next/image'
 import Link from 'next/link'
 import { UserCircleIcon } from '@heroicons/react/outline'
 import { useState } from "react"
-
+import {
+    getAuth,
+    signOut,
+    onAuthStateChanged,
+    updateProfile,
+    updateEmail,
+    updatePassword
+  } from 'firebase/auth'
+import { useEffect } from "react";
+import { useRouter } from 'next/router';
 
 
 const Header = () => {
 
-const [loading, setLoading] = useState(false)
+const firebaseConfig = {
+    apiKey: "AIzaSyClBmYjWTD4D-a5GR9tKEVnkzpqAM3H3Ps",
+    authDomain: "jaydenhu-33683.firebaseapp.com",
+    projectId: "jaydenhu-33683",
+    storageBucket: "jaydenhu-33683.appspot.com",
+    messagingSenderId: "807526322828",
+    appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
+  };
+  
+  const app = initializeApp(firebaseConfig);  
+  const auth = getAuth();
+  const router = useRouter()
+  const user = auth.currentUser;
+  const [loading, setLoading] = useState(false)
+
+useEffect(() => {
+const userplace = document.querySelector('.user')
+
+if(userplace != null){
+    if(user == null){
+        userplace.innerHTML = `Log in`         
+    }else {
+        userplace.innerHTML = `Welcome, ${user.displayName || user.email}`
+    } 
+}
+}, [])
+
+
 
 
     return (
@@ -27,7 +64,7 @@ const [loading, setLoading] = useState(false)
                                 </svg>
                             </div>
                             }                           
-                            {!loading && <div className='pb-2 mb-10 border-b-2 border-red-500 hover:opacity-70'>Log in</div>
+                            {!loading && <div className='user pb-2 mb-10 border-b-2 border-red-500 hover:opacity-70'>Log in</div>
                             }
             </a>
                          </div>
