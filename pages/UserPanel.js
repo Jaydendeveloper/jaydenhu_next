@@ -10,9 +10,10 @@ import {
 import { useState } from "react";
 import Link from 'next/link'
 import { useEffect } from "react";
+import { async } from "@firebase/util";
 
 const UserPanel = () => {
-   
+
 const [usernameError, setUsernameError] = useState(null)
 const [photoError, setPhotoError] = useState(null)
 const [emailError, setEmailError] = useState(null)
@@ -27,11 +28,10 @@ const firebaseConfig = {
     messagingSenderId: "807526322828",
     appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
   };
-  
-initializeApp(firebaseConfig);  
 
 const auth = getAuth();
 const user = auth.currentUser;
+initializeApp(firebaseConfig);
 
     return (
             <div className="absolute right-2 top-[60px] bg-[#121212] border-2 text-white border-red-500 rounded-md w-[400px] z-[99999]">
