@@ -19,45 +19,9 @@ const [emailError, setEmailError] = useState(null)
 const [passwordError, setPasswordError] = useState(null)
 const [success, setSuccess] = useState(false)
 const [screenLoading, setScreenLoading] = useState(false)
-const firebaseConfig = {
-    apiKey: "AIzaSyClBmYjWTD4D-a5GR9tKEVnkzpqAM3H3Ps",
-    authDomain: "jaydenhu-33683.firebaseapp.com",
-    projectId: "jaydenhu-33683",
-    storageBucket: "jaydenhu-33683.appspot.com",
-    messagingSenderId: "807526322828",
-    appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
-  };
-  
-initializeApp(firebaseConfig);  
+
 const auth = getAuth();
 const user = auth.currentUser;
-
-useEffect(() => {
-    if(user == null){
-        user = ""
-    }
-    if(user.displayName == null){
-        user.displayName = "";
-    }
-    if(user.email == null){
-        user.email = "";
-    }
-    if(user.photoURL == null){
-        user.photoURL = "";
-    }
-    if(user.metadata.creationTime == null){
-        user.metadata.creationTime = "";
-    }
-    if(user.metadata.lastSignInTime == null){
-        user.metadata.lastSignInTime = "";
-    }
-    if(user.providerId == null){
-        user.providerId = "";
-    }
-    if(user.uid == null){
-        user.uid = "";
-    }
-})
 
     return (
             <div className="absolute right-2 top-[60px] bg-[#121212] border-2 text-white border-red-500 rounded-md w-[400px] z-[99999]">
