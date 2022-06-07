@@ -33,6 +33,9 @@ const auth = getAuth();
 const user = auth.currentUser;
 
 useEffect(() => {
+    if(user == null){
+        user = ""
+    }
     if(user.displayName == null){
         user.displayName = "";
     }
