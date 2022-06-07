@@ -27,6 +27,7 @@ const user = auth.currentUser;
 const [error, setError] = useState(null);
 const [loading, setLoading] = useState(false);
 
+
    useEffect(() => {
        if(user) {
            router.push('/admin')

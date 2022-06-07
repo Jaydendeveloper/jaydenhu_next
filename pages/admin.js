@@ -24,6 +24,7 @@ import {
     orderBy, serverTimestamp, getDoc,
     updateDoc,
 } from 'firebase/firestore';
+import UserPanel from "./UserPanel";
 
 const Admin = () => {
 
@@ -119,111 +120,8 @@ const colRef = collection(db, 'posts');
 
 
                 {userOpt &&
-                <div className="absolute right-2 top-[60px] bg-transparent border-2 border-red-500 rounded-md w-[400px">
-                <div className="ml-5 mr-5">
-                    <h1 className="text-center mt-2 mb-3">User Info</h1>
-                    <p className="mb-1">Username: {user.displayName}</p>
-                    <p className="mb-1">Email: {user.email}</p>
-                    <p className="mb-1">Profile picture: {user.photoURL}</p>
-                    <p className="mb-1">User created: {user.metadata.creationTime}</p>
-                    <p className="mb-1">Last login: {user.metadata.lastSignInTime}</p>
-                    <p className="mb-1">Provider: {user.providerId}</p>
-                    <p className="mb-1">User ID: {user.uid}</p>
-                </div>
-                <h1 className="text-center mt-2 mb-3">Update user</h1>
-                <form className="userOptForm text-center">
-                    <label>Display name:</label><br />
-                    <input className="mt-5 text-black" type="text" name="username"/><br />
-                    {usernameError && usernameError}
-
-                    <label>Profile picture (link):</label><br />
-                    <input className="mt-5 text-black" type="text" name="photo"/><br />
-                    {photoError && photoError}
-
-                    <label>Email:</label><br />
-                    <input className="mt-5 text-black" type="text" name="email"/><br />
-                    {emailError && emailError}
-
-                    <label>Password:</label><br />
-                    <input className="mt-5 mb-5 text-black" type="password" name="password"/><br />
-                    {passwordError && passwordError}
-
-                    <button className="mb-5 bg-red-500 outline-none pop-out rounded-md p-2" onClick={(e) => 
-                    {
-                        const userOptform = document.querySelector('.userOptForm')
-                        e.preventDefault();
-                        if(userOptform.username.value != ""){
-                            updateProfile(auth.currentUser, {
-                                displayName: userOptform.username.value,
-                            })
-                            .then(() => {
-                                userOptform.reset()
-                                setSuccess(true)
-                                setTimeout(() => {
-                                    setSuccess(false)
-                                }, 2000)
-                              }).catch((err) => {
-                                setUsernameError(err)
-                              });
-                        }
-                        if(userOptform.photo.value != ""){
-                            updateProfile(auth.currentUser, {
-                                photoURL: userOptform.photo.value,
-                            })
-                            .then(() => {
-                                userOptform.reset()
-                                setSuccess(true)
-                                setTimeout(() => {
-                                    setSuccess(false)
-                                }, 2000)
-                              }).catch((err) => {
-                                setPhotoError(err)
-                              });
-                        }
-                        if(userOptform.email.value != ""){
-                            updateEmail(auth.currentUser, userOptform.email.value)
-                            .then(() => {
-                                userOptform.reset()
-                                setSuccess(true)
-                                setTimeout(() => {
-                                    setSuccess(false)
-                                }, 2000)
-                              }).catch((err) => {
-                                setPasswordError(err)
-                              });
-                        }
-                        if(userOptform.password.value != ""){
-                            updatePassword(auth.currentUser, userOptform.password.value)
-                            .then(() => {
-                                userOptform.reset()
-                                setSuccess(true)
-                                setTimeout(() => {
-                                    setSuccess(false)
-                                }, 2000)
-                              }).catch((err) => {
-                                setEmailError(err)
-                              });
-                        }
-
-                    }}>Update</button>
-                    {success && <div className="text-green-500 mb-5">Updated!</div>}
-                </form>
-                </div>
+                <UserPanel />
                 }
-
-
-                <button className='absolute right-[400px] top-4 border-b-2 border-red-500 py-1 text-white  hover:opacity-70 pop-out outline-none'
-                onClick={() => {
-                    signOut(auth)
-                    .then(() => {
-                        setLogout(false)
-                        router.push('/login')
-                    })
-                        .catch(err => {
-                        console.log(err.message)
-                    })
-                }
-                }>Logout</button>
             </div>
             <nav className="absolute mt-0 text-white text-xl">
                 <ul className="ml-0 mt-10 h-[100vh] w-[150px]">
