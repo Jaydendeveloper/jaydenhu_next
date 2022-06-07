@@ -36,7 +36,6 @@ const user = auth.currentUser;
             <div className="absolute right-2 top-[60px] bg-[#121212] border-2 text-white border-red-500 rounded-md w-[400px] z-[99999]">
             <div className="ml-5 mr-5">
                 <h1 className="text-center mt-2 mb-3">User Info</h1>
-                {user.displayName && <p className="mb-1">Username: {user.displayName}</p>}
                 <p className="mb-1">Email: {user.email}</p>
                 <p className="mb-1">Profile picture: {user.photoURL}</p>
                 <p className="mb-1">User created: {user.metadata.creationTime}</p>
