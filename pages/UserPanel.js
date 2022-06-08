@@ -32,7 +32,9 @@ const auth = getAuth();
 const user = auth.currentUser;
 
     return (
-            <div className="absolute right-2 top-[60px] bg-[#121212] border-2 text-white border-red-500 rounded-md w-[400px] z-[99999]">
+        <>
+        {user && 
+        <div className="absolute right-2 top-[60px] bg-[#121212] border-2 text-white border-red-500 rounded-md w-[400px] z-[99999]">
             <div className="ml-5 mr-5">
                 <h1 className="text-center mt-2 mb-3">User Info</h1>
                 <p className="mb-1">Username: {user.displayName}</p>
@@ -134,7 +136,9 @@ const user = auth.currentUser;
             }
             }>Logout</button>
             </form>
-            </div>
+        </div>
+        }
+        </>
     );
 }
  
