@@ -5,7 +5,7 @@ import {db} from './fbconfig'
 import { useEffect, useState } from 'react';
 import Header from './Header';
 
-const id = () => {
+const Id = () => {
 const router = useRouter()
 const { id } = router.query
 const [post, setPost] = useState(null)
@@ -32,4 +32,4 @@ return (
     </>
 )
 }
-export default id;
+export default Id;
