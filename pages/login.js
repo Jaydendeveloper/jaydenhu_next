@@ -1,39 +1,33 @@
 import Header from "./Header";
 import { initializeApp } from "firebase/app";
 import {
+    browserLocalPersistence,
+    browserSessionPersistence,
     getAuth,
+    setPersistence,
     signInWithEmailAndPassword,
   } from 'firebase/auth'
 import { useState, useEffect, handleSubmit } from "react";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { HomeIcon } from '@heroicons/react/outline'
+import {app, user, auth, db} from "./fbconfig"
 
 const Loginpage = () => {
+
+ const auth = getAuth();
+ const user = auth.currentUser;
+
    
-const firebaseConfig = {
-    apiKey: "AIzaSyClBmYjWTD4D-a5GR9tKEVnkzpqAM3H3Ps",
-    authDomain: "jaydenhu-33683.firebaseapp.com",
-    projectId: "jaydenhu-33683",
-    storageBucket: "jaydenhu-33683.appspot.com",
-    messagingSenderId: "807526322828",
-    appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
-  };
-  
-initializeApp(firebaseConfig);  
-const auth = getAuth();
 const router = useRouter();
-const user = auth.currentUser;
 const [error, setError] = useState(null);
 const [loading, setLoading] = useState(false);
 
-   useEffect(() => {
        if(user) {
            router.push('/admin')
        } else {
         console.log(user)
        }
-   },[])
    
 return (
         <div>
@@ -63,6 +57,7 @@ return (
                         .then(cred => {
                             console.log('user logged in:', cred.user)
                             loginform.reset()
+                            setPersistence(auth, browserLocalPersistence);
                         })
                         .then(() => {
                             auth.onAuthStateChanged(function(user) {

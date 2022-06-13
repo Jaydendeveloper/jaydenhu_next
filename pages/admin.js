@@ -25,22 +25,19 @@ import {
     updateDoc,
 } from 'firebase/firestore';
 import UserPanel from "./UserPanel";
+import Editor from 'react-simple-code-editor';
+import { highlight, languages } from "prismjs/components/prism-core";
+import 'prismjs/components/prism-clike';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/themes/prism-duotone-space.css';
+import {app, user, auth, db} from "./fbconfig"
 
 const Admin = () => {
-
-const firebaseConfig = {
-  apiKey: "AIzaSyClBmYjWTD4D-a5GR9tKEVnkzpqAM3H3Ps",
-  authDomain: "jaydenhu-33683.firebaseapp.com",
-  projectId: "jaydenhu-33683",
-  storageBucket: "jaydenhu-33683.appspot.com",
-  messagingSenderId: "807526322828",
-  appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
-};
-
-const app = initializeApp(firebaseConfig);  
 const auth = getAuth();
-const router = useRouter()
 const user = auth.currentUser;
+
+
+const router = useRouter()
 const [logout, setLogout] = useState(false)
 const [newPost, setNewPost] = useState(false)
 const [deletePost, setDeletePost] = useState(false)
@@ -57,6 +54,8 @@ const [emailError, setEmailError] = useState(null)
 const [passwordError, setPasswordError] = useState(null)
 const [success, setSuccess] = useState(false)
 const [screenLoading, setScreenLoading] = useState(false)
+const [content, setContent] = useState("")
+const [theme, setTheme] = useState("duotone-space")
 
 
 const db = getFirestore();
@@ -77,6 +76,10 @@ const colRef = collection(db, 'posts');
           }
         },[]);
     })
+    useEffect(() => {
+       const currentTheme = localStorage.getItem('themes')
+       setTheme(currentTheme)
+    }, [])
     
     useEffect(() =>{
         if(screenLoading == true){
@@ -101,7 +104,15 @@ const colRef = collection(db, 'posts');
         setCurrentPosts(posts);
     });
   }, [])
+  
 
+useEffect(() => {
+    if(theme == 'duotone-space'){
+        localStorage.setItem('theme', theme)
+    } else if(theme == 'dark'){
+        localStorage.setItem('theme', theme)
+    }
+  },[theme])
 
     return (
         <div>
@@ -219,23 +230,31 @@ const colRef = collection(db, 'posts');
                 {newPost &&
 
                 // NEW POST
-                <div className="flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
-                    <form className="newPostForm relative mt-24 rounded text-white py-10 px-6 md:mt-0 md:max-w-md md:px-14">
+                <div className="flex h-screen w-screen bg-black md:bg-transparent">
+                    <form className="newPostForm relative left-[30%] top-[15%] mt-24 rounded text-white">
                     <h2 className="text-4xl font-semibold text-red-500 mb-5">New post</h2>
-                        <label className="inline-block w-full mb-1">Title:</label><br />
-                        <input className="text-black outline-none px-1 rounded-md mb-4" type="text" name="title"/><br />
-                        <label className="inline-block w-full mb-1">Author:</label><br />
-                        <input className="text-black outline-none px-1 rounded-md mb-4" type="text" name="author"/><br />
-                        <label className="inline-block w-full mb-1">Content:</label><br />
-                        <textarea className="text-black outline-none px-1 rounded-md mb-4" type="text" name="content"/><br />
-                        <label className="inline-block w-full mb-1">Link:</label><br />
-                        <input className="text-black outline-none px-1 rounded-md mb-4" type="text" name="link"/><br />
+                        <label className="w-full mr-5">Title:</label>
+                        <input className="outline-none rounded-md mb-5 text-black" type="text" name="title"/>
+                        <label className="w-full mr-5 ml-2">Author:</label>
+                        <input className="outline-none rounded-md mb-5 text-black" type="text" name="author"/>
+                        <label className="w-full mr-5 ml-2">Link:</label>
+                        <input className="outline-none rounded-md mb-5 text-black" type="text" name="link"/><br />
+                        <label className="w-full">Content:</label>
+                        <Editor
+                        value={content}
+                        onValueChange={code => setContent(code)}
+                        highlight={code => highlight(code, languages.js)}
+                        padding={10}
+                        className="border-2 border-[gray] rounded-md bg-black/50 text-white w-[800px] mt-5"
+                        name="content"
+                        /><br />
                         <button type="submit" className="newPostSubmit w-full rounded bg-red-500 py-3 font-semibold hover:opacity-80 pop-out outline-none" onClick={(e) => 
                         {
                             e.preventDefault();
 
                             const newPostForm = document.querySelector('.newPostForm')
                             const newPostSubmitBtn = document.querySelector('.newPostSubmit')
+                            const content = document.querySelector('.textarea-content')
                             
                         if(newPostForm.title.value == "" || newPostForm.content.value == "" || newPostForm.link.value == "" || newPostForm.author.value == ""){
                             setError("A field is left empty")
@@ -254,6 +273,7 @@ const colRef = collection(db, 'posts');
                             })
                             .then(() => {
                                 newPostForm.reset()
+                                setContent("")
                             })
                             .catch((err) => {
                                 setError(err.message)
@@ -262,7 +282,7 @@ const colRef = collection(db, 'posts');
                             
                         }}>Post</button>
                     </form>
-                {error && <div className="text-red-500">{error}</div>}
+                {error && <div className="text-red-500 realative mt-[30%] ml-[5%]">{error}</div>}
                 </div>  
                 }
 
@@ -362,21 +382,29 @@ const colRef = collection(db, 'posts');
                     </table>
                 </center>
                     <div className="flex justify-center mt-10">
-                        <form className="editPostForm text-black">
-                        <label className="mr-3 text-white">ID:</label>
+                        <form className="editPostForm relative text-black">
+                        <label className="mr-3 text-white ml-[100px]">ID:</label>
                         <input className="mr-3" type="text" name="id"/>
 
-                        <label className="mr-3 text-white">Title:</label>
-                        <input className="mr-3" type="text" name="title"/>
+                        <label className="mr-3 text-white ml-[100px]">Title:</label>
+                        <input className="mr-3 " type="text" name="title"/><br />
 
-                        <label className="mr-3 text-white">Author:</label>
-                        <input className="" type="text" name="author"/><br />
+                        <label className="mr-3 text-white ml-[100px]">Author:</label>
+                        <input className="" type="text" name="author"/>
+
+                        
+                        <label className="mr-3 text-white ml-[100px]">Link:</label>
+                        <input className="mt-4" type="text" name="link"/><br />
 
                         <label className="mr-3 text-white">Content:</label>
-                        <textarea className="mr-3 mt-5 h-[23px]" type="text" name="content"/>
-
-                        <label className="mr-3 text-white">Link:</label>
-                        <input className="mr-0" type="text" name="link"/>
+                        <Editor
+                        value={content}
+                        onValueChange={code => setContent(code)}
+                        highlight={code => highlight(code, languages.js)}
+                        padding={10}
+                        className="border-2 border-[gray] rounded-md bg-black/50 text-white w-[800px] mt-5"
+                        name="content"
+                        /><br />
 
                         <button className="w-[105px] rounded bg-red-500 text-white outline-none py-3 font-semibold hover:opacity-80 mt-3 ml-2 pop-out" onClick={()=> {
                             const editPostForm = document.querySelector('.editPostForm')
@@ -413,6 +441,7 @@ const colRef = collection(db, 'posts');
                                 })
                                 .then(() => {
                                     editPostForm.reset()
+                                    setContent("")
                                 })
                                 .catch((err) => {
                                     setError(err.message)
@@ -464,19 +493,17 @@ const colRef = collection(db, 'posts');
                     </div>
                 </>
                 }
-
                 {options &&
                 //OPTIONS
                     <>
-                    <form>
-                    <label className="text-white" htmlFor="switch"> Toggle Registration</label>
-                    <label className="switch">
-                        <input name="register" type="checkbox"/>
-                        <span className="slider round"></span>
-                    </label> 
-                    <button onClick={() => {
-                    setRegistration(true)
-                    }}>Toggle registration</button>
+
+                    <form className="themeform flex text-white justify-center" onChange={console.log(theme)}>                       
+                    <h1>Code theme</h1>
+                    <input type="radio" name="theme" value={"duotone-space"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Duotone-space (default) <br />
+                    <input type="radio" name="theme" value={"dark"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Dark <br />
+                    <input type="radio" name="theme" value={"dark2"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
+                    <input type="radio" name="theme" value={"dark3"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
+                    <input type="radio" name="theme" value={"dark4"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
                     </form>       
                     </>
                 }

@@ -10,26 +10,19 @@ import {
 import { useState } from "react";
 import Link from 'next/link'
 import { useEffect } from "react";
+import {app, user, auth, db} from "./fbconfig"
+
 
 const UserPanel = () => {
-   
+    
+const auth = getAuth();
+const user = auth.currentUser;
 const [usernameError, setUsernameError] = useState(null)
 const [photoError, setPhotoError] = useState(null)
 const [emailError, setEmailError] = useState(null)
 const [passwordError, setPasswordError] = useState(null)
 const [success, setSuccess] = useState(false)
 const [screenLoading, setScreenLoading] = useState(false)
-const firebaseConfig = {
-    apiKey: "AIzaSyClBmYjWTD4D-a5GR9tKEVnkzpqAM3H3Ps",
-    authDomain: "jaydenhu-33683.firebaseapp.com",
-    projectId: "jaydenhu-33683",
-    storageBucket: "jaydenhu-33683.appspot.com",
-    messagingSenderId: "807526322828",
-    appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
-  };
-initializeApp(firebaseConfig);  
-const auth = getAuth();
-const user = auth.currentUser;
 
     return (
         <>
@@ -127,7 +120,6 @@ const user = auth.currentUser;
             onClick={() => {
                 signOut(auth)
                 .then(() => {
-                    setLogout(false)
                     router.push('/login')
                 })
                     .catch(err => {

@@ -1,6 +1,7 @@
 import {ArrowRightIcon} from '@heroicons/react/outline'
 import Link from 'next/link'
 import { useState } from "react";
+import {app, user, auth, db} from "./fbconfig"
 
 const Navbar = () => {
 
