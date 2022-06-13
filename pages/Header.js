@@ -25,6 +25,7 @@ const user = auth.currentUser;
   const [loading, setLoading] = useState(false)
   const [userOpt, setuserOpt] = useState(false)
 
+useEffect(() => {
     auth.onAuthStateChanged(() => {
         const userplace = document.querySelector('.user')
     
@@ -37,8 +38,7 @@ const user = auth.currentUser;
         }
     })
 
-
-
+}, [])
 
     return (
         <>
