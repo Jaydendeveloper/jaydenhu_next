@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@heroicons/react": "^1.0.6",
+    "babel-plugin-prismjs": "^2.1.0",
     "firebase": "^9.8.1",
     "next": "12.1.6",
     "prism-themes": "^1.9.0",
