@@ -26,14 +26,15 @@ const user = auth.currentUser;
   const [userOpt, setuserOpt] = useState(false)
 
     auth.onAuthStateChanged(() => {
-        const userplace = document.querySelector('.user')
-    
-        if(userplace != null){
-            if(user){
-                userplace.innerHTML = `Welcome, ${user.displayName || user.email}`    
-            } else {
-                userplace.innerHTML = `Log in` 
-            } 
+        if(document){
+            const userplace = document.querySelector('.user')
+            if(userplace != null){
+                if(user){
+                    userplace.innerHTML = `Welcome, ${user.displayName || user.email}`    
+                } else {
+                    userplace.innerHTML = `Log in` 
+                } 
+            }
         }
     })
 
