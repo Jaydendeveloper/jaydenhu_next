@@ -24,7 +24,7 @@ return (
     <Header />
     {post && 
     <div className='relative text-white left-[40%] top-[100px] w-[500px] mb-10'>
-        <div className=''>{post.title} · {post.author} · Link:<a target="_blank" className='text-blue-400' href={post.link}><i> {post.link}</i></a></div><br />
+        <div className=''>{post.title} · {post.author} · Link:<a target="_blank" rel="noreferrer" className='text-blue-400' href={post.link}><i> {post.link}</i></a></div><br />
         <div className='' dangerouslySetInnerHTML={{__html: post.content}}></div>
     </div>
     
