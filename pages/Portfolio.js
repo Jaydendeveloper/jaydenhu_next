@@ -65,10 +65,12 @@ const Portfolio = () => {
                   <div key={post.id} onClick={(target) => {
                     userPost = post;
                     router.push(post.id);
-                    }} className='pop-out h-[250px] w-[300px] mb-5 md:mb-5 lg:mb-5 md:h-[250px] md:w-[400px] lg:h-[250px] lg:w-[400px] border-2 cursor-pointer rounded-md m-auto md:m-auto lg:m-0'>
+                    }} className='pop-out h-[150px] w-[300px] mb-5 md:mb-5 lg:mb-5 md:h-[150px] md:w-[400px] lg:h-[150px] lg:w-[400px] border-2 cursor-pointer rounded-md m-auto md:m-auto lg:m-0'>
                   <h2 className='text-[30px] ml-5 mt-10 text-[gray]'>{post.title}</h2>
-                  <div className='relative w-auto left-[10px] top-[125px] md:left-[10px] md:top-[120px] lg:left-[10px] lg:top-[120px] text-orange-500'>by {post.author}</div>
-                  <ArrowRightIcon className='relative w-9 left-[250px] top-[100px] md:left-[350px] md:top-[90px] lg:left-[350px] lg:top-[90px] text-orange-500'/>
+                  <div className="relative border-0 border-t-2 border-t-orange-500 w-auto top-[30px] md:top-[30px] md:h-[50px] lg:h-[50px] lg:top-[30px] text-orange-500">
+                    <div className='ml-2'>by {post.author}</div>
+                    <ArrowRightIcon className='relative w-9 top-[-30px] left-[250px] md:left-[350px] lg:left-[350px] text-orange-500'/>
+                    </div>
                   </div>
               ))}
            </div>

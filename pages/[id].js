@@ -5,18 +5,27 @@ import {db} from './fbconfig'
 import { useEffect, useState } from 'react';
 import Header from './Header';
 
+
+
 const Id = () => {
+  
 const router = useRouter()
 const { id } = router.query
 const [post, setPost] = useState(null)
-const db = getFirestore()
-const docRef = doc(db, "posts", id);
+
 useEffect(() => {
+let n = id;
+if(n == undefined) {
+  router.push('/')
+} else {
+const docRef = doc(db, "posts", id);
 
 onSnapshot(docRef, (doc) => {
   console.log(doc.data())
   setPost(doc.data())
 })
+}
+
 }, [])
 
 return (
