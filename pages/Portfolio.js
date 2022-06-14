@@ -42,7 +42,7 @@ const Portfolio = () => {
       return (
           <>
               <div className="text-center text-[30px] text-white border-b-2 border-red-500 mt-10 mb-10">
-                 <font className="text-[#38b4c8]">//</font> Portfolio
+                 <font className="text-[#38b4c8]">&frasl; &frasl; </font> Portfolio
               </div>
               <div>
                 <svg role="status" className="inline w-8 h-8 mr-2 text-gray-200 animate-spin dark:text-gray-600 fill-white" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -56,7 +56,7 @@ const Portfolio = () => {
     return (
       <> 
           <div className="text-center text-[30px] text-white mt-10 mb-10">
-              <font className="text-[#38b4c8]">//</font> Portfolio
+              <font className="text-[#38b4c8]">&frasl; &frasl; </font> Portfolio
           </div>
           <div>
             <div className='mt-10 mb-[0px] flex flex-wrap flex-col space-y-4 bottom-20 lg:space-x-10 justify-center lg:flex-row md:flex-col md:space-y-4 lg:space-y-0'>
