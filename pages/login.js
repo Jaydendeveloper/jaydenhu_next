@@ -33,19 +33,19 @@ return (
         <div>
             <div>
                 <Link href={'/'}>
-                    <HomeIcon className='text-red-500 absolute cursor-pointer h-10 left-5 top-5 pop-out'/>
+                    <HomeIcon className='text-[#38b4c8] absolute cursor-pointer h-10 left-5 top-5 pop-out'/>
                 </Link>
             </div>
             <div className="realative flex h-screen w-screen flex-col bg-black md:items-center md:justify-center md:bg-transparent">
                 <form className="loginform relative mt-24 space-y-8 rounded text-white  py-10 px-6 md:mt-0 md:max-w-md md:px-14">
-                <h1 className="text-4xl font-semibold text-red-500">Sign in</h1>
+                <h1 className="text-4xl font-semibold text-[#38b4c8]">Sign in</h1>
                 <div className="space-y-4">
                     <label className="inline-block w-full">Email:</label><br />
                     <input className="text-black outline-none px-1 rounded-md" type="text" name="email"/><br />
                     <label className="inline-block w-full">Password:</label><br />
                     <input className="text-black outline-none px-1 rounded-md" type="password" name="password"/><br />
                 </div>
-                    <button type="submit" className="login w-full h-[55px] rounded bg-red-500 outline-none py-3 font-semibold hover:opacity-80 pop-out" onClick={(e) => {
+                    <button type="submit" className="login w-full h-[55px] rounded bg-[#38b4c8] outline-none py-3 font-semibold hover:opacity-80 pop-out" onClick={(e) => {
                         e.preventDefault()
                         setLoading(true)
 

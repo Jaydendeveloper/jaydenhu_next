@@ -119,11 +119,11 @@ useEffect(() => {
             <div className='header h-14 bg-transparent border-none text-white'>
 
                 <Link href={'/'}>
-                        <HomeIcon className='text-red-500 absolute cursor-pointer h-10 left-[55px] top-5'/>
+                        <HomeIcon className='text-[#38b4c8] absolute cursor-pointer h-10 left-[55px] top-5'/>
                     </Link>
 
                 
-                <button onClick={() => {setuserOpt(!userOpt); console.log(user)}} className='absolute px-2 top-4 right-4 border-b-2 py-1 border-red-500 text-white hover:opacity-70 outline-none pop-out'>
+                <button onClick={() => {setuserOpt(!userOpt); console.log(user)}} className='absolute px-2 top-4 right-4 border-b-2 py-1 border-[#38b4c8] text-white hover:opacity-70 outline-none pop-out'>
                         <div>
                             <a className='user ml-2 mt-1 mb-1 mr-2'></a>
                         </div>
@@ -163,7 +163,7 @@ useEffect(() => {
 
                                         postList.insertAdjacentHTML("beforeend",
                                         `
-                                        <tr className="border-b-2 border-red-500 text-white">
+                                        <tr className="border-b-2 border-[#38b4c8] text-white">
                                         <td className="">${post.title}</td>
                                         <td className="">${post.author}</td>
                                         <td className="">${post.id}</td>
@@ -199,7 +199,7 @@ useEffect(() => {
 
                             postList.insertAdjacentHTML("beforeend",
                              `
-                             <tr className="border-b-2 border-red-500 text-white">
+                             <tr className="border-b-2 border-[#38b4c8] text-white">
                              <td className="">${post.title}</td>
                              <td className="">${post.author}</td>
                              <td className="">${post.id}</td>
@@ -232,7 +232,7 @@ useEffect(() => {
                 // NEW POST
                 <div className="flex h-screen w-screen bg-black md:bg-transparent">
                     <form className="newPostForm relative left-[30%] top-[15%] mt-24 rounded text-white">
-                    <h2 className="text-4xl font-semibold text-red-500 mb-5">New post</h2>
+                    <h2 className="text-4xl font-semibold text-[#38b4c8] mb-5">New post</h2>
                         <label className="w-full mr-5">Title:</label>
                         <input className="outline-none rounded-md mb-5 text-black" type="text" name="title"/>
                         <label className="w-full mr-5 ml-2">Author:</label>
@@ -248,7 +248,7 @@ useEffect(() => {
                         className="border-2 border-[gray] rounded-md bg-black/50 text-white w-[800px] mt-5"
                         name="content"
                         /><br />
-                        <button type="submit" className="newPostSubmit w-full rounded bg-red-500 py-3 font-semibold hover:opacity-80 pop-out outline-none" onClick={(e) => 
+                        <button type="submit" className="newPostSubmit w-full rounded bg-[#38b4c8] py-3 font-semibold hover:opacity-80 pop-out outline-none" onClick={(e) => 
                         {
                             e.preventDefault();
 
@@ -282,7 +282,7 @@ useEffect(() => {
                             
                         }}>Post</button>
                     </form>
-                {error && <div className="text-red-500 realative mt-[30%] ml-[5%]">{error}</div>}
+                {error && <div className="text-[#38b4c8] realative mt-[30%] ml-[5%]">{error}</div>}
                 </div>  
                 }
 
@@ -292,10 +292,10 @@ useEffect(() => {
                 //DELETE POST
                 <>
                  <center>
-                 <h2 className="text-4xl font-semibold text-red-500 mb-5">Delete post</h2>
+                 <h2 className="text-4xl font-semibold text-[#38b4c8] mb-5">Delete post</h2>
                 <table className="table-auto text-white">
                     <thead>
-                        <tr className="border-b-2 border-red-500 text-white">
+                        <tr className="border-b-2 border-[#38b4c8] text-white">
                             <th className="px-10">Topic name</th>
                             <th className="px-10">Topic author</th>
                             <th className="px-10">Topic ID</th>
@@ -312,7 +312,7 @@ useEffect(() => {
                     <form className="deletePostForm text-white">
                         <label className="inline-block w-full">Post id:</label><br />
                         <input className="text-black outline-none h-[30px] px-1 mr-4" type="text" name="id"/>
-                        <button type="submit" className="deletePostBtn w-[150px] h-[50px] rounded bg-red-500 py-3 font-semibold pop-out outline-none"  onClick={(e) => 
+                        <button type="submit" className="deletePostBtn w-[150px] h-[50px] rounded bg-[#38b4c8] py-3 font-semibold pop-out outline-none"  onClick={(e) => 
                         {
                             e.preventDefault()
                             const deletePostForm = document.querySelector('.deletePostForm');
@@ -344,7 +344,7 @@ useEffect(() => {
 
                                 postList.insertAdjacentHTML("beforeend",
                                  `
-                                 <tr className="border-b-2 border-red-500 text-white">
+                                 <tr className="border-b-2 border-[#38b4c8] text-white">
                                  <td className="">${post.title}</td>
                                  <td className="">${post.author}</td>
                                  <td className="">${post.id}</td>
@@ -355,7 +355,7 @@ useEffect(() => {
                         })
                         }}>Refresh</button>
                     </form>
-                    {error && <div className="text-red-500">{error}</div>}                 
+                    {error && <div className="text-[#38b4c8]">{error}</div>}                 
                     </div>
                 </>
                  }
@@ -366,10 +366,10 @@ useEffect(() => {
                  // EDIT POST
                  <>
                  <center>
-                 <h2 className="text-4xl font-semibold text-red-500 mb-5">Edit post</h2>
+                 <h2 className="text-4xl font-semibold text-[#38b4c8] mb-5">Edit post</h2>
                     <table className="table-auto text-white">
                     <thead>
-                    <tr className="border-b-2 border-red-500 text-white">
+                    <tr className="border-b-2 border-[#38b4c8] text-white">
                         <th className="px-10">Topic name</th>
                         <th className="px-10">Topic author</th>
                         <th className="px-10">Topic ID</th>
@@ -406,7 +406,7 @@ useEffect(() => {
                         name="content"
                         /><br />
 
-                        <button className="w-[105px] rounded bg-red-500 text-white outline-none py-3 font-semibold hover:opacity-80 mt-3 ml-2 pop-out" onClick={()=> {
+                        <button className="w-[105px] rounded bg-[#38b4c8] text-white outline-none py-3 font-semibold hover:opacity-80 mt-3 ml-2 pop-out" onClick={()=> {
                             const editPostForm = document.querySelector('.editPostForm')
                             editPostForm.addEventListener('submit', (e) => {
                             e.preventDefault()
@@ -426,7 +426,7 @@ useEffect(() => {
                             }
                             if(editPostForm.author.value != ""){
                                 updateDoc(docRef, {
-                                    link: editPostForm.link.value
+                                    author: editPostForm.author.value
                                 })
                                 .then(() => {
                                     editPostForm.reset()
@@ -478,7 +478,7 @@ useEffect(() => {
 
                                 postList.insertAdjacentHTML("beforeend",
                                  `
-                                 <tr className="border-b-2 border-red-500 text-white">
+                                 <tr className="border-b-2 border-[#38b4c8] text-white">
                                  <td className="">${post.title}</td>
                                  <td className="">${post.author}</td>
                                  <td className="">${post.id}</td>
@@ -489,7 +489,7 @@ useEffect(() => {
                         })
                         }}>Refresh</button>
                         </form>
-                        {error && <div className="text-red-500">{error}</div>}
+                        {error && <div className="text-[#38b4c8]">{error}</div>}
                     </div>
                 </>
                 }

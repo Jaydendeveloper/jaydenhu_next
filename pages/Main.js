@@ -1,7 +1,7 @@
 const Main = () => {
     return (
     
-        <h2 className="text-[35px] text-center text-red-500">Jayden <br /><div className="text-white" >Web developer</div></h2>
+        <h2 className="text-[35px] text-center text-[#38b4c8]">Jayden <br /><div className="text-white" > &lt; Web developer /&gt;</div></h2>
 
     );
 }
