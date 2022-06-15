@@ -11,7 +11,7 @@ const [loading, setLoading] = useState(false)
 
     return (
 <>
-<div className='mt-[250px] mb-[0px] flex flex-wrap flex-col space-y-4 bottom-20 lg:space-x-10 justify-center lg:flex-row md:flex-col md:space-y-4 lg:space-y-0'>
+<div className='mt-[250px] mb-[0px] flex flex-wrap flex-col space-y-4 bottom-20 lg:gap-5 justify-center lg:flex-row md:flex-col md:space-y-4 lg:space-y-0'>
             <Link href={'/contact'}>
                 <div className='text-xl text-white'>
                     <div className='text-center mb-2'>Contact me here:</div>
@@ -41,7 +41,7 @@ const [loading, setLoading] = useState(false)
             </Link>
         </div>
         <div className='flex justify-center'>
-            <div className='text-white bottom-3 absolute'>
+            <div className='text-white bottom-3 absolute lg:block hidden'>
                 <Link href="#portfolio">
                 <a className="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
                 </Link>
