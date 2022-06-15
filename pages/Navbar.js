@@ -43,7 +43,7 @@ const [loading, setLoading] = useState(false)
         <div className='flex justify-center'>
             <div className='text-white bottom-3 absolute lg:block hidden'>
                 <Link href="#portfolio">
-                <a className="ca3-scroll-down-link ca3-scroll-down-arrow" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
+                <a className="ca3-scroll-down-link ca3-scroll-down-arrow outline-none" data-ca3_iconfont="ETmodules" data-ca3_icon=""></a>
                 </Link>
             </div>
         </div>

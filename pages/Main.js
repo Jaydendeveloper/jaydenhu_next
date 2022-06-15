@@ -9,7 +9,7 @@ const Main = () => {
         <div className="text-white ml-[50px] max-w-[300px] mt-[200px] md:ml-[300px] lg:ml-[780px] md:max-w-full lg:max-w-full">
             <div className="text-[50px]">Welcome to my page!
         </div>
-            <div className="max-w-[700px] mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel libero quos magni mollitia, dolorem nam excepturi beatae harum voluptatem neque veniam laboriosam, possimus rem tempora corrupti, ea exercitationem in magnam!</div>
+            <div className="max-w-[700px] mt-5">I am a full stack web developer, currently open for new clients. Depending on the website complexity I work with HTML, CSS, JS, React.js, Next.js and Firebase as backend. You can look at my portfolio if you just scroll down a little bit.</div>
         </div>
     </div>   
     );
