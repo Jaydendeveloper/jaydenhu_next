@@ -17,13 +17,17 @@ import { useEffect, useState } from "react";
 import {app, user, auth, db} from "./fbconfig"
 
 let userPost = null;
-
+const createdAtYear = null;
+const createdAtMonth = null;
+const createdAtDate = null;
+const createdAtHours = null;
+const createdAtMinutes = null;
 const Portfolio = () => {
 
     const colRef = collection(db, "posts");
     const [posts, setPosts] = useState([]);
     const router = useRouter()
-  
+      
     useEffect(() => {
       const q = query(colRef, orderBy("created_at"));
   
@@ -41,7 +45,7 @@ const Portfolio = () => {
     if(!posts.length>0){
       return (
           <>
-              <div className="text-center text-[30px] text-white border-b-2 border-red-500 mt-10 mb-10">
+              <div className="text-center text-[30px] text-white mt-10 mb-10">
                  <font className="text-[#38b4c8]">&frasl; &frasl; </font> Portfolio
               </div>
               <div>
@@ -55,12 +59,18 @@ const Portfolio = () => {
    else{
     return (
       <> 
-          <div className="text-center text-[30px] text-white mt-10 mb-10">
+          <div id="portfolio" className="text-center text-[30px] text-white mt-10 lg:mt-[300px] mb-10">
               <font className="text-[#38b4c8]">&frasl; &frasl; </font> Portfolio
           </div>
           <div>
             <div className='mt-10 mb-[0px] flex flex-wrap flex-col space-y-4 bottom-20 lg:space-x-10 justify-center lg:flex-row md:flex-col md:space-y-4 lg:space-y-0'>
                 {posts.map(post=>(
+
+                 createdAtYear = new Date(post.created_at.seconds*1000).getFullYear(),
+                  createdAtMonth = new Date(post.created_at.seconds*1000).getMonth(),
+                  createdAtDate = new Date(post.created_at.seconds*1000).getDate(),
+                  createdAtHours = new Date(post.created_at.seconds*1000).getHours(),
+                  createdAtMinutes = new Date(post.created_at.seconds*1000).getMinutes(),
 
                   <div key={post.id} onClick={(target) => {
                     userPost = post;
@@ -69,7 +79,7 @@ const Portfolio = () => {
                   <h2 className='text-[30px] ml-5 mt-10  hover:text-[gray]'>{post.title}</h2>
                   <div className="relative border-0 border-t-2 border-t-[#38b4c8] w-auto top-[30px] md:top-[30px] md:h-[50px] lg:h-[50px] lg:top-[30px] text-orange-500">
                     <div className='ml-2 text-[#38b4c8]'>by {post.author}</div>
-                    <ArrowRightIcon className='relative w-9 top-[-30px] left-[250px] md:left-[350px] lg:left-[350px] text-[#38b4c8]'/>
+                    <div className='relative w-auto top-[-23px] left-[280px] md:left-[280px] md:w-auto lg:w-auto lg:left-[280px] text-[#38b4c8]'>{createdAtYear}.{createdAtMonth +1}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>
                     </div>
                   </div>
               ))}

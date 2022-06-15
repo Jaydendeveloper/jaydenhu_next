@@ -237,7 +237,7 @@ useEffect(() => {
                         <input className="outline-none rounded-md mb-5 text-black" type="text" name="title"/>
                         <label className="w-full mr-5 ml-2">Author:</label>
                         <input className="outline-none rounded-md mb-5 text-black" type="text" name="author"/>
-                        <label className="w-full mr-5 ml-2">Link:</label>
+                        <label className="w-full mr-5 ml-2">Link (optional):</label>
                         <input className="outline-none rounded-md mb-5 text-black" type="text" name="link"/><br />
                         <label className="w-full">Content:</label>
                         <Editor
@@ -256,7 +256,7 @@ useEffect(() => {
                             const newPostSubmitBtn = document.querySelector('.newPostSubmit')
                             const content = document.querySelector('.textarea-content')
                             
-                        if(newPostForm.title.value == "" || newPostForm.content.value == "" || newPostForm.link.value == "" || newPostForm.author.value == ""){
+                        if(newPostForm.title.value == "" || newPostForm.content.value == "" || newPostForm.author.value == ""){
                             setError("A field is left empty")
                             console.log("A field is left empty")
                         }  else {
