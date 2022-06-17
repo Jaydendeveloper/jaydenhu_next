@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "@heroicons/react": "^1.0.6",
     "babel-plugin-prismjs": "^2.1.0",
     "firebase": "^9.8.1",
