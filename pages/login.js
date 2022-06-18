@@ -4,6 +4,7 @@ import {
     browserLocalPersistence,
     browserSessionPersistence,
     getAuth,
+    onAuthStateChanged,
     setPersistence,
     signInWithEmailAndPassword,
   } from 'firebase/auth'
@@ -23,11 +24,14 @@ const router = useRouter();
 const [error, setError] = useState(null);
 const [loading, setLoading] = useState(false);
 
-       if(user) {
-           router.push('/admin')
-       } else {
-        console.log(user)
-       }
+useEffect(() => {
+    if(user) {
+        router.push('/admin')
+    } else {
+     console.log(user)
+    }
+}, [])
+
    
 return (
         <div>

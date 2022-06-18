@@ -77,7 +77,7 @@ const Portfolio = () => {
                     router.push(post.id);
                     }} className='pop-out h-[auto] w-[300px] text-white mb-5 md:mb-5 lg:mb-5 md:w-[400px] lg:w-[600px] border-2 cursor-pointer rounded-md'>
                   <h2 className='text-[30px] ml-5 mt-10 mb-3 hover:text-[gray]'>{post.title}</h2>
-                  <p className='text-[15px] ml-5  mr-5 hover:text-[gray] max-w-[auto] text-justify descText'>{post.desc}</p>
+                  <p className='text-[15px] ml-5  mr-5 max-w-[auto] text-justify descText'>{post.desc}</p>
                   <div className="relative border-0 border-t-2 border-t-[#38b4c8] top-[20px] h-[50px]">
                     <div className='ml-2 text-[#38b4c8]'>by {post.author}</div>
                     <div className='relative top-[-23px] md:left-[280px] lg:left-[480px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonth +1}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>

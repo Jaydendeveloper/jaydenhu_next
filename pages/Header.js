@@ -61,7 +61,7 @@ useEffect(() => {
                                 user &&
                                 <button onClick={() => {setuserOpt(!userOpt)}} className='px-2 mt-2 border-b-2 py-1 border-[#38b4c8] text-white hover:opacity-70 outline-none pop-out'>
                                 <div>
-                                    <a className='user ml-2 mt-1 mb-1'>Welcome, { user.displayName || user.email}</a>
+                                    <a className='user mt-1 mb-1'>Welcome, { user.displayName || user.email}</a>
                                 </div>
                                 </button>
                                 }
