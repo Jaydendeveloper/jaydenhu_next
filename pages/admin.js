@@ -515,7 +515,7 @@ if(user){
                     <>
 
                     <form className="themeform flex text-white justify-center">                       
-                    <h1>Code theme</h1>
+                    <h1>Code theme (not working)</h1>
                     <input type="radio" name="theme" value={"duotone-space"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Duotone-space (default) <br />
                     <input type="radio" name="theme" value={"dark"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Dark <br />
                     <input type="radio" name="theme" value={"dark2"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
