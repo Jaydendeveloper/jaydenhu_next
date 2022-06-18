@@ -21,6 +21,7 @@ const createdAtYear = null;
 const createdAtMonth = null;
 const createdAtDate = null;
 const createdAtHours = null;
+const createdAtMinute = null;
 const createdAtMinutes = null;
 const Portfolio = () => {
 
@@ -70,7 +71,9 @@ const Portfolio = () => {
                   createdAtMonth = new Date(post.created_at.seconds*1000).getMonth(),
                   createdAtDate = new Date(post.created_at.seconds*1000).getDate(),
                   createdAtHours = new Date(post.created_at.seconds*1000).getHours(),
-                  createdAtMinutes = new Date(post.created_at.seconds*1000).getMinutes(),
+                  createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes(),
+                  createdAtMinutes = ('0'+ createdAtMinute).slice(-2),
+                  
 
                   <div key={post.id} onClick={() => {
                     userPost = post;
