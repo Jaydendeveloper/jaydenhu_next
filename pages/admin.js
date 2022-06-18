@@ -166,7 +166,8 @@ if(user){
                                     const createdAtMonths = ('0'+ createdAtMonth).slice(-2)
                                     const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
                                     const createdAtDates = ('0'+ createdAtDate).slice(-2)
-                                    const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                                    const createdAtHour = new Date(post.created_at.seconds*1000).getHours()
+                                    const createdAtHours = ('0'+ createdAtHour).slice(-2)
                                     const createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes()
                                     const createdAtMinutes = ('0'+ createdAtMinute).slice(-2)
                                         setScreenLoading(true)
@@ -206,9 +207,11 @@ if(user){
                             const createdAtMonths = ('0'+ createdAtMonth).slice(-2)
                             const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
                             const createdAtDates = ('0'+ createdAtDate).slice(-2)
-                            const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                            const createdAtHour = new Date(post.created_at.seconds*1000).getHours()
+                            const createdAtHours = ('0'+ createdAtHour).slice(-2)
                             const createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes()
                             const createdAtMinutes = ('0'+ createdAtMinute).slice(-2)
+
 
                             postList.insertAdjacentHTML("beforeend",
                              `
@@ -362,9 +365,11 @@ if(user){
                                 const createdAtMonths = ('0'+ createdAtMonth).slice(-2)
                                 const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
                                 const createdAtDates = ('0'+ createdAtDate).slice(-2)
-                                const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
+                                const createdAtHour = new Date(post.created_at.seconds*1000).getHours()
+                                const createdAtHours = ('0'+ createdAtHour).slice(-2)
                                 const createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes()
                                 const createdAtMinutes = ('0'+ createdAtMinute).slice(-2)
+
                             setScreenLoading(true)
 
                                 postList.insertAdjacentHTML("beforeend",
@@ -373,7 +378,7 @@ if(user){
                                  <td className="">${post.title}</td>
                                  <td className="">${post.author}</td>
                                  <td className="">${post.id}</td>
-                                 <td className="">${createdAtYear}.${createdAtMonth +1}.${createdAtDate} ${createdAtHours}:${createdAtMinutes}</td>
+                                 <td className="">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
                                 </tr>
                                 `)
                             setScreenLoading(false)
@@ -495,14 +500,16 @@ if(user){
 
                             currentPosts.forEach(post => {
 
-                            const createdAtYear = new Date(post.created_at.seconds*1000).getFullYear()
-                            const createdAtMonth = new Date(post.created_at.seconds*1000).getMonth() +1
-                            const createdAtMonths = ('0'+ createdAtMonth).slice(-2)
-                            const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
-                            const createdAtDates = ('0'+ createdAtDate).slice(-2)
-                            const createdAtHours = new Date(post.created_at.seconds*1000).getHours()
-                            const createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes()
-                            const createdAtMinutes = ('0'+ createdAtMinute).slice(-2)
+                                const createdAtYear = new Date(post.created_at.seconds*1000).getFullYear()
+                                const createdAtMonth = new Date(post.created_at.seconds*1000).getMonth() +1
+                                const createdAtMonths = ('0'+ createdAtMonth).slice(-2)
+                                const createdAtDate = new Date(post.created_at.seconds*1000).getDate()
+                                const createdAtDates = ('0'+ createdAtDate).slice(-2)
+                                const createdAtHour = new Date(post.created_at.seconds*1000).getHours()
+                                const createdAtHours = ('0'+ createdAtHour).slice(-2)
+                                const createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes()
+                                const createdAtMinutes = ('0'+ createdAtMinute).slice(-2)
+
                             
                             setScreenLoading(true)
 

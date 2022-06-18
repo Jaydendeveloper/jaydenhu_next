@@ -21,6 +21,7 @@ const createdAtYear = null;
 const createdAtMonth = null;
 const createdAtDate = null;
 const createdAtHours = null;
+const createdAtHour = null;
 const createdAtMinute = null;
 const createdAtMinutes = null;
 const createdAtMonths = null;
@@ -74,7 +75,8 @@ const Portfolio = () => {
                   createdAtMonths = ('0'+ createdAtMonth).slice(-2),
                   createdAtDate = new Date(post.created_at.seconds*1000).getDate(),
                   createdAtDates = ('0'+ createdAtDate).slice(-2),
-                  createdAtHours = new Date(post.created_at.seconds*1000).getHours(),
+                  createdAtHour = new Date(post.created_at.seconds*1000).getHours(),
+                  createdAtHours = ('0'+ createdAtHour).slice(-2),
                   createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes(),
                   createdAtMinutes = ('0'+ createdAtMinute).slice(-2),
                   
