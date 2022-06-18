@@ -87,7 +87,7 @@ const Portfolio = () => {
                   <p className='text-[15px] ml-5  mr-5 max-w-[auto] text-justify descText'>{post.desc}</p>
                   <div className="relative border-0 border-t-2 border-t-[#38b4c8] top-[20px] h-[50px]">
                     <div className='ml-2 text-[#38b4c8]'>by {post.author}</div>
-                    <div className='relative top-[-23px] md:left-[280px] lg:left-[470px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonths}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>
+                    <div className='relative top-[-23px] md:left-[280px] lg:left-[470px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonths}.{createdAtDates} {createdAtHours}:{createdAtMinutes}</div>
                     </div>
                   </div>
               ))}
