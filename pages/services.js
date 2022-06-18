@@ -17,7 +17,7 @@ const Services = () => {
                 <div className="pop-out h-[auto] w-[200px] text-white mb-5 md:mb-5 lg:mb-5 md:w-[400px] lg:w-[400px] cursor-pointer rounded-md">
                     <img className="h-[150px] relative left-5 md:left-[30%] lg:left-[30%]" src="host.png" alt="" />
                     <h2 className="text-[30px] text-center mt-10 mb-3">Help in hosting</h2>
-                    <div className="text-center mb-5">I will help in hosting your website is you don't have enough experience doing it.</div>
+                    <div className="text-center mb-5">I will help in hosting your website is you don&apos;t have enough experience doing it.</div>
                 </div>
             </Link>
             </div>

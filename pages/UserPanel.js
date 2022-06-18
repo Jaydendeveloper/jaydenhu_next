@@ -23,6 +23,16 @@ const [emailError, setEmailError] = useState(null)
 const [passwordError, setPasswordError] = useState(null)
 const [success, setSuccess] = useState(false)
 const [screenLoading, setScreenLoading] = useState(false)
+const [admin, setAdmin] = useState(false)
+
+useEffect(() => {
+    if(document.location.pathname == '/admin'){
+        setAdmin(true)
+    } else {
+        setAdmin(false)
+    }
+})
+
 
     return (
         <>
@@ -111,7 +121,18 @@ const [screenLoading, setScreenLoading] = useState(false)
         
                 }}>Update</button><br />
                 {success && <div className="text-green-500 mb-5">Updated!</div>}
-            <Link href="/admin"><button className="mb-5 bg-[#38b4c8] outline-none pop-out rounded-md p-2">Admin</button></Link><br />     
+                <span>
+                    {admin && 
+                    <Link href="/">
+                        <button className="mb-5 bg-[#38b4c8] outline-none pop-out rounded-md p-2">Exit from Admin</button>
+                    </Link>
+                    }
+                    {!admin && 
+                    <Link href = "/admin">
+                    <button className="mb-5 bg-[#38b4c8] outline-none pop-out rounded-md p-2">Admin</button>
+                    </Link>
+                    }
+                </span><br />     
             <button className='mb-5 bg-[#38b4c8] outline-none pop-out rounded-md p-2'
             onClick={() => {
                 signOut(auth)
@@ -122,7 +143,7 @@ const [screenLoading, setScreenLoading] = useState(false)
                     console.log(err.message)
                 })
             }
-            }>Logout</button>
+            }>Log out</button>
             </form>
         </div>
         }

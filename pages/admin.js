@@ -121,12 +121,16 @@ if(user){
         <div>
             <div className='header h-14 bg-transparent border-none text-white'>
 
-                <Link href={'/'}>
-                        <HomeIcon className='text-[#38b4c8] absolute cursor-pointer h-10 left-[55px] top-5'/>
-                    </Link>
+            <h4 className='absolute py-4 left-4 text-xl outline-none'>
+                        <Link href={'/'}>
+                            <a className='outline-none'>
+                                <font className="text-[#38b4c8]">&lt;</font> Jayden.hu - Admin /<font className="text-[#38b4c8]">&gt;</font>
+                            </a>
+                        </Link>
+            </h4>
 
                 
-                <button onClick={() => {setuserOpt(!userOpt); console.log(user)}} className='absolute px-2 top-3 right-6 border-b-2 py-1 border-[#38b4c8] text-white hover:opacity-70 outline-none pop-out'>
+                <button onClick={() => {setuserOpt(!userOpt);}} className='absolute px-2 top-3 right-6 border-b-2 py-1 border-[#38b4c8] text-white hover:opacity-70 outline-none pop-out'>
                         <div>
                             <a className='user mt-1 mb-1'></a>
                         </div>
@@ -270,10 +274,7 @@ if(user){
                             
                         if(newPostForm.title.value == "" || newPostForm.content.value == "" || newPostForm.author.value == "" || newPostForm.desc.value == ""){
                             setError("A field is left empty")
-                            console.log("A field is left empty")
                         }  else {
-                            console.log(newPostForm.title.value)
-                            console.log('submitted')
                             e.preventDefault()
 
                             addDoc(colRef, {
@@ -513,7 +514,7 @@ if(user){
                 //OPTIONS
                     <>
 
-                    <form className="themeform flex text-white justify-center" onChange={console.log(theme)}>                       
+                    <form className="themeform flex text-white justify-center">                       
                     <h1>Code theme</h1>
                     <input type="radio" name="theme" value={"duotone-space"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Duotone-space (default) <br />
                     <input type="radio" name="theme" value={"dark"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Dark <br />

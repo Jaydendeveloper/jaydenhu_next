@@ -22,5 +22,4 @@ const fbconfig = () => {
 
 export const app = initializeApp(firebaseConfig);  
 export const db = getFirestore()
-export const analytics = getAnalytics(app);
 export default fbconfig;
