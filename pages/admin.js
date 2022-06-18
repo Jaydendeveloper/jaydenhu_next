@@ -55,6 +55,7 @@ const [passwordError, setPasswordError] = useState(null)
 const [success, setSuccess] = useState(false)
 const [screenLoading, setScreenLoading] = useState(false)
 const [content, setContent] = useState("")
+const [desc, setDesc] = useState("")
 const [theme, setTheme] = useState("duotone-space")
 
 
@@ -239,6 +240,15 @@ useEffect(() => {
                         <input className="outline-none rounded-md mb-5 text-black" type="text" name="author"/>
                         <label className="w-full mr-5 ml-2">Link (optional):</label>
                         <input className="outline-none rounded-md mb-5 text-black" type="text" name="link"/><br />
+                        <label className="w-full">Description:</label>
+                        <Editor
+                        value={desc}
+                        onValueChange={code => setDesc(code)}
+                        highlight={code => highlight(code, languages.js)}
+                        padding={10}
+                        className="border-2 border-[gray] rounded-md bg-black/50 text-white w-[800px] mt-5"
+                        name="desc"
+                        /><br />
                         <label className="w-full">Content:</label>
                         <Editor
                         value={content}
@@ -256,7 +266,7 @@ useEffect(() => {
                             const newPostSubmitBtn = document.querySelector('.newPostSubmit')
                             const content = document.querySelector('.textarea-content')
                             
-                        if(newPostForm.title.value == "" || newPostForm.content.value == "" || newPostForm.author.value == ""){
+                        if(newPostForm.title.value == "" || newPostForm.content.value == "" || newPostForm.author.value == "" || newPostForm.desc.value == ""){
                             setError("A field is left empty")
                             console.log("A field is left empty")
                         }  else {
@@ -267,6 +277,7 @@ useEffect(() => {
                             addDoc(colRef, {
                                 title: newPostForm.title.value,
                                 author: newPostForm.author.value,
+                                desc: newPostForm.desc.value,
                                 content: newPostForm.content.value,
                                 link: newPostForm.link.value,
                                 created_at: serverTimestamp()
@@ -274,6 +285,7 @@ useEffect(() => {
                             .then(() => {
                                 newPostForm.reset()
                                 setContent("")
+                                setDesc("")
                             })
                             .catch((err) => {
                                 setError(err.message)

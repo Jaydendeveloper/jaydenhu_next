@@ -73,3 +73,18 @@ button{
   50%  { opacity: 1;  }
   100% { transform:translate(0,20px); opacity: 0; }
 }
+.descText {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+          line-clamp: 5; 
+  -webkit-box-orient: vertical;
+}
+
+@media (max-width: 500px) {
+  .descText {
+    -webkit-line-clamp: 7;
+            line-clamp: 7; 
+  }
+}

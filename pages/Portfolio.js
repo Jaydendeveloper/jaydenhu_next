@@ -62,8 +62,8 @@ const Portfolio = () => {
           <div id="portfolio" className="text-center text-[30px] text-white mt-10 lg:mt-[300px] mb-10">
               <font className="text-[#38b4c8]">&frasl; &frasl; </font> Portfolio
           </div>
-          <div className="flex justify-center lg:justify-start">
-            <div className="mt-10 flex flex-wrap flex-col bottom-20 md:gap-5 lg:gap-5 lg:flex-row md:flex-col">
+          <div className="flex justify-center">
+            <div className="mt-10 flex flex-wrap flex-col bottom-20 md:gap-5 lg:gap-5 md:flex-col">
                 {posts.map(post=>(
 
                  createdAtYear = new Date(post.created_at.seconds*1000).getFullYear(),
@@ -75,11 +75,12 @@ const Portfolio = () => {
                   <div key={post.id} onClick={() => {
                     userPost = post;
                     router.push(post.id);
-                    }} className='pop-out h-[150px] w-[300px] text-white mb-5 md:mb-5 lg:mb-5 md:w-[400px] lg:w-[400px] border-2 cursor-pointer rounded-md'>
-                  <h2 className='text-[30px] ml-5 mt-10  hover:text-[gray]'>{post.title}</h2>
-                  <div className="relative border-0 border-t-2 border-t-[#38b4c8] top-[30px] h-[50px]">
+                    }} className='pop-out h-[auto] w-[300px] text-white mb-5 md:mb-5 lg:mb-5 md:w-[400px] lg:w-[600px] border-2 cursor-pointer rounded-md'>
+                  <h2 className='text-[30px] ml-5 mt-10 mb-3 hover:text-[gray]'>{post.title}</h2>
+                  <p className='text-[15px] ml-5  mr-5 hover:text-[gray] max-w-[auto] text-justify descText'>{post.desc}</p>
+                  <div className="relative border-0 border-t-2 border-t-[#38b4c8] top-[20px] h-[50px]">
                     <div className='ml-2 text-[#38b4c8]'>by {post.author}</div>
-                    <div className='relative top-[-23px] md:left-[280px] lg:left-[280px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonth +1}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>
+                    <div className='relative top-[-23px] md:left-[280px] lg:left-[480px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonth +1}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>
                     </div>
                   </div>
               ))}

@@ -5,6 +5,7 @@ import emailjs from '@emailjs/browser';
 const Contact = () => {
 
 const [error, setError] = useState(null);
+const [success, setSuccess] = useState(null)
 const [loading, setLoading] = useState(false);
 
     return (
@@ -15,6 +16,8 @@ const [loading, setLoading] = useState(false);
                 <form className="emailform relative mt-24 space-y-8 rounded text-white  py-10 px-6 md:mt-0 md:max-w-md md:px-14">
                 <h1 className="text-4xl font-semibold text-[#38b4c8]">Contact</h1>
                 <div className="space-y-4">
+                    <label className="inline-block w-full">Your Name:</label><br />
+                    <input className="text-black outline-none px-1 rounded-md" type="text" name="name"/><br />
                     <label className="inline-block w-full">Your Email:</label><br />
                     <input className="text-black outline-none px-1 rounded-md" type="text" name="email"/><br />
                     <label className="inline-block w-full">Subject:</label><br />
@@ -33,27 +36,27 @@ const [loading, setLoading] = useState(false);
                             subject: emailform.subject.value.trim(),
                             message: emailform.message.value.trim(),
                         }; */
-
-                        emailjs.sendForm('service_k1acx4w', 'template_shha0wm', '.emailform', 'EcaClbH17d-Q-Q3Uy')
+                        if(emailform.email.value == '' || emailform.subject.value == '' ||  emailform.message.value == '' || emailform.name.value == ''){
+                            setTimeout(() => {
+                                setError(null)
+                                setLoading(false)
+                            }, 2000)
+                            setError("A field is left empty")
+                        } else {
+                            emailjs.sendForm('service_k1acx4w', 'template_shha0wm', '.emailform', 'EcaClbH17d-Q-Q3Uy')
                             .then(function(response) {
                             console.log('SUCCESS!', response.status, response.text);
                             setLoading(false)
+                            setSuccess('Email successfully sent!')
+                            setTimeout(() => {
+                                setSuccess(null)
+                            }, 2000)
                             }, function(error) {
                             console.log('FAILED...', error);
                             setLoading(false)
+                            setError(error.message)
                             });
-                         
-/*                         emailjs.send('service_k1acx4w', 'template_shha0wm', templateParams, 'EcaClbH17d-Q-Q3Uy')
-                            .then(function(response) {
-                               console.log('SUCCESS!', response.status, response.text);
-                               emailform.reset();
-                               setLoading(false)
-                            }, function(error) {
-                               console.log('FAILED...', error);
-                               emailform.reset();
-                               setLoading(false)
-                            }); */
-
+                        }
                         }}>
                         {
                         loading && 
@@ -68,9 +71,10 @@ const [loading, setLoading] = useState(false);
                         !loading && <div>Send</div>
                         }
                     </button>
+                    {error && <div className="text-red-500 text-center">{error}</div>}
+                    {success && <div className="text-green-500 text-center">{success}</div>}
                     <br />
                     </form>
-                    <div className="text-[#ff5349] max-w-xl">{error && `${error.message}` }</div>
             </div>
         </div>
         </>

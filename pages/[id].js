@@ -32,7 +32,7 @@ return (
   <>
     <Header />
     {post && 
-      <div className='relative w-[300px] top-[50px] table m-auto  text-white lg:left-[40%] lg:top-[100px] lg:w-[500px] mb-10'>
+      <div className='relative w-[300px] top-[50px] table m-auto  text-white lg:top-[100px] lg:w-[700px]'>
           <div className=''>{post.title} · {post.author}{post.link && <span> · Link:<a target="_blank" rel="noreferrer" className='text-blue-400' href={post.link}><i> {post.link}</i></a></span>}</div><br />
           <div className='text-justify' dangerouslySetInnerHTML={{__html: post.content}}></div>
       </div>
