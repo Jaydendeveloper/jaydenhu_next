@@ -23,6 +23,8 @@ const createdAtDate = null;
 const createdAtHours = null;
 const createdAtMinute = null;
 const createdAtMinutes = null;
+const createdAtMonths = null;
+const createdAtDates = null;
 const Portfolio = () => {
 
     const colRef = collection(db, "posts");
@@ -68,8 +70,10 @@ const Portfolio = () => {
                 {posts.map(post=>(
 
                  createdAtYear = new Date(post.created_at.seconds*1000).getFullYear(),
-                  createdAtMonth = new Date(post.created_at.seconds*1000).getMonth(),
+                  createdAtMonth = new Date(post.created_at.seconds*1000).getMonth() +1,
+                  createdAtMonths = ('0'+ createdAtMonth).slice(-2),
                   createdAtDate = new Date(post.created_at.seconds*1000).getDate(),
+                  createdAtDates = ('0'+ createdAtDate).slice(-2),
                   createdAtHours = new Date(post.created_at.seconds*1000).getHours(),
                   createdAtMinute = new Date(post.created_at.seconds*1000).getMinutes(),
                   createdAtMinutes = ('0'+ createdAtMinute).slice(-2),
@@ -83,7 +87,7 @@ const Portfolio = () => {
                   <p className='text-[15px] ml-5  mr-5 max-w-[auto] text-justify descText'>{post.desc}</p>
                   <div className="relative border-0 border-t-2 border-t-[#38b4c8] top-[20px] h-[50px]">
                     <div className='ml-2 text-[#38b4c8]'>by {post.author}</div>
-                    <div className='relative top-[-23px] md:left-[280px] lg:left-[480px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonth +1}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>
+                    <div className='relative top-[-23px] md:left-[280px] lg:left-[470px] text-[#38b4c8] hidden md:block lg:block'>{createdAtYear}.{createdAtMonths}.{createdAtDate} {createdAtHours}:{createdAtMinutes}</div>
                     </div>
                   </div>
               ))}
