@@ -32,7 +32,6 @@ const [screenLoading, setScreenLoading] = useState(false)
                 <h1 className="text-center mt-2 mb-3">User Info</h1>
                 <p className="mb-1">Username: {user.displayName}</p>
                 <p className="mb-1">Email: {user.email}</p>
-                <p className="mb-1">Profile picture: {user.photoURL}</p>
                 <p className="mb-1">User created: {user.metadata.creationTime}</p>
                 <p className="mb-1">Last login: {user.metadata.lastSignInTime}</p>
                 <p className="mb-1">Provider: {user.providerId}</p>
@@ -44,9 +43,6 @@ const [screenLoading, setScreenLoading] = useState(false)
                 <input className="mt-5 text-black" type="text" name="username"/><br />
                 {usernameError && usernameError}
         
-                <label>Profile picture (link):</label><br />
-                <input className="mt-5 text-black" type="text" name="photo"/><br />
-                {photoError && photoError}
         
                 <label>Email:</label><br />
                 <input className="mt-5 text-black" type="text" name="email"/><br />
