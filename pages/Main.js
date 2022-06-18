@@ -3,8 +3,11 @@ const Main = () => {
 
     return (
     <div className="md:mt-[150px] md:mb[150px] lg:mt-[150px] lg:mb-[150px]"> 
-        <div className="text-[150px] hidden md:block lg:block mt-[15px] float-left md:text-[150px] lg:text-[250px] lg:mt-[-110px] md:mt-[-40px] md:ml-[30px] lg:ml-[300px] text-white">
+{/*        <div className="text-[150px] hidden md:block lg:block mt-[15px] float-left md:text-[150px] lg:text-[250px] lg:mt-[-110px] md:mt-[-40px] md:ml-[30px] lg:ml-[300px] text-white">
             &lt;<span className="text-[#38b4c8]">/</span>&gt;
+        </div> */}
+        <div className="hidden md:block lg:block mt-[15px] float-left md:text-[150px] lg:text-[250px] lg:mt-[-110px] md:mt-[-40px] md:ml-[30px] lg:ml-[300px] text-white">
+            <img className="h-[400px] mainpic" src="main.png" />
         </div>
         <div className="text-white ml-[30px] max-w-[300px] mt-[200px] md:ml-[300px] lg:ml-[780px] md:max-w-full lg:max-w-full">
             <div className="text-[50px]">Welcome to my page!

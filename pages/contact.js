@@ -15,6 +15,7 @@ const [loading, setLoading] = useState(false);
             <div className="realative flex h-screen w-screen flex-col md:items-center md:justify-center md:bg-transparent">
                 <form className="emailform relative mt-24 space-y-8 rounded text-white  py-10 px-6 md:mt-0 md:max-w-md md:px-14">
                 <h1 className="text-4xl font-semibold text-[#38b4c8]">Contact</h1>
+                <span className="text-[13px] font-semibold">I don't collect any of your data, its only used for sending the email.</span>
                 <div className="space-y-4">
                     <label className="inline-block w-full">Your Name:</label><br />
                     <input className="text-black outline-none px-1 rounded-md" type="text" name="name"/><br />
@@ -25,7 +26,7 @@ const [loading, setLoading] = useState(false);
                     <label className="inline-block w-full">Message:</label><br />
                     <textarea className="text-black outline-none px-1 rounded-md w-[300px] h-[150px]" type="text" name="message"/><br />
                 </div>
-                    <button type="submit" className="login w-full h-[55px] rounded bg-[#38b4c8] outline-none py-3 font-semibold hover:opacity-80 pop-out" onClick={(e) => {
+                    <button type="submit" className="login w-[300px] h-[55px] rounded bg-[#38b4c8] outline-none py-3 font-semibold hover:opacity-80 pop-out" onClick={(e) => {
                         e.preventDefault()
                         setLoading(true)
 

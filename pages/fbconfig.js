@@ -1,5 +1,6 @@
 
 import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
 import {
     getAuth,
   } from 'firebase/auth'
@@ -18,6 +19,8 @@ const fbconfig = () => {
 
 
 }
+
 export const app = initializeApp(firebaseConfig);  
 export const db = getFirestore()
+export const analytics = getAnalytics(app);
 export default fbconfig;

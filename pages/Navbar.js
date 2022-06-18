@@ -30,7 +30,7 @@ const [loading, setLoading] = useState(false)
                     </div>
                 </div>
             </Link>
-            <Link href={'/info'}>
+{/*             <Link href={'/info'}>
                 <div className='text-xl text-white'>
                     <div className='text-center mb-2'>More information:</div> 
                     <div className='fill-anim pop-out h-[100px] w-[300px] md:h-1000px] md:w-[400px] lg:h-[100px] lg:w-[400px] border-2 cursor-pointer border-[#38b4c8] rounded-md m-auto md:m-auto lg:m-0'>
@@ -38,7 +38,7 @@ const [loading, setLoading] = useState(false)
                         <ArrowRightIcon className='pop-out-arrow relative w-9 left-[250px]  top-[-10px] md:left-[350px] md:top-[-10px] lg:left-[350px] lg:top-[-10px] text-[#38b4c8]'/>
                     </div>
                 </div>
-            </Link>
+            </Link> */}
         </div>
         <div className='flex justify-center'>
             <div className='text-white bottom-3 absolute lg:block hidden'>
