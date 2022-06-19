@@ -175,10 +175,10 @@ if(user){
                                         postList.insertAdjacentHTML("beforeend",
                                         `
                                         <tr className="border-b-2 border-[#38b4c8] text-white">
-                                        <td className="">${post.title}</td>
-                                        <td className="">${post.author}</td>
-                                        <td className="">${post.id}</td>
-                                        <td className="">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
+                                        <td className="py-5">${post.title}</td>
+                                        <td className="py-5">${post.author}</td>
+                                        <td className="py-5">${post.id}</td>
+                                        <td className="py-5">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
                                         </tr>
                                         `)
                                         setScreenLoading(false)
@@ -216,10 +216,10 @@ if(user){
                             postList.insertAdjacentHTML("beforeend",
                              `
                              <tr className="border-b-2 border-[#38b4c8] text-white">
-                             <td className="">${post.title}</td>
-                             <td className="">${post.author}</td>
-                             <td className="">${post.id}</td>
-                             <td className="">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
+                             <td className="py-5">${post.title}</td>
+                             <td className="py-5">${post.author}</td>
+                             <td className="py-5">${post.id}</td>
+                             <td className="py-5">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
                             </tr>
                             `)
                     })
@@ -375,10 +375,10 @@ if(user){
                                 postList.insertAdjacentHTML("beforeend",
                                  `
                                  <tr className="border-b-2 border-[#38b4c8] text-white">
-                                 <td className="">${post.title}</td>
-                                 <td className="">${post.author}</td>
-                                 <td className="">${post.id}</td>
-                                 <td className="">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
+                                 <td className="py-5">${post.title}</td>
+                                 <td className="py-5">${post.author}</td>
+                                 <td className="py-5">${post.id}</td>
+                                 <td className="py-5">${createdAtYear}.${createdAtMonths}.${createdAtDates} ${createdAtHours}:${createdAtMinutes}</td>
                                 </tr>
                                 `)
                             setScreenLoading(false)

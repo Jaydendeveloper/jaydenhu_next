@@ -25,7 +25,7 @@ const Contact = () => {
                             <input className="text-black outline-none px-1 rounded-md" type="text" name="email" /><br />
                             <label className="inline-block w-full">Subject:</label><br />
                             <input className="text-black outline-none px-1 rounded-md" type="text" name="subject" /><br />
-                            <label className="inline-block w-full">Message:</label><br />
+                            <label className="inline-block w-full">Message (HU / EN) :</label><br />
                             <textarea className="text-black outline-none px-1 rounded-md w-[300px] h-[150px]" type="text" name="message" /><br />
                         </div>
                         <button type="submit" className="login w-[300px] h-[55px] rounded bg-[#38b4c8] outline-none py-3 font-semibold hover:opacity-80 pop-out" onClick={(e) => {
