@@ -49,6 +49,7 @@ const Contact = () => {
                                     .then(function (response) {
                                         console.log('SUCCESS!', response.status, response.text);
                                         setLoading(false)
+                                        emailform.reset()
                                         setSuccess('Email successfully sent!')
                                         setTimeout(() => {
                                             setSuccess(null)
@@ -56,6 +57,7 @@ const Contact = () => {
                                     }, function (error) {
                                         console.log('FAILED...', error);
                                         setLoading(false)
+                                        emailform.reset()
                                         setError(error.message)
                                     });
                             }
