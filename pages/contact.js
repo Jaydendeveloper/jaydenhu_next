@@ -2,6 +2,7 @@ import { useState } from "react";
 import Header from "./Header";
 import emailjs from '@emailjs/browser';
 import Head from "next/head";
+import Image from "next/image";
 
 const Contact = () => {
 
@@ -78,6 +79,16 @@ const Contact = () => {
                         {error && <div className="text-red-500 text-center">{error}</div>}
                         {success && <div className="text-green-500 text-center">{success}</div>}
                         <br />
+                        <div className="flex flex-row gap-5">
+                            <a target="_blank"  href="https://github.com/Jaydendeveloper">
+                                <div className="rounded-[50%] bg-white w-[50px] h-[50px] cursor-pointer">
+                                <Image width={50} height={55} src="/github.png" className=""/>               
+                                </div>
+                            </a>
+                            <a target="_blank" href="https://discord.gg/DSCtVQs6Ja" >
+                                <Image width={50} height={50} src="/discord.png" className="cursor-poniter"/>     
+                            </a>        
+                        </div>
                     </form>
                 </div>
             </div>
