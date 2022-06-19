@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Header from "./Header";
 import emailjs from '@emailjs/browser';
+import Head from "next/head";
 
 const Contact = () => {
 

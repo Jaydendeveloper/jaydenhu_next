@@ -12,7 +12,7 @@ export default function Home() {
       <Head>
         <title>Jayden.hu</title>
         <meta name="description" content="jayden.hu" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/logo.png"/>
       </Head>
       <Header/>
       <Main/>
