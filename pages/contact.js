@@ -80,12 +80,12 @@ const Contact = () => {
                         {success && <div className="text-green-500 text-center">{success}</div>}
                         <br />
                         <div className="flex flex-row gap-5">
-                            <a target="_blank"  href="https://github.com/Jaydendeveloper">
+                            <a target="_blank"  rel="noreferrer" href="https://github.com/Jaydendeveloper">
                                 <div className="rounded-[50%] bg-white w-[50px] h-[50px] cursor-pointer">
                                 <Image width={50} height={55} src="/github.png" className=""/>               
                                 </div>
                             </a>
-                            <a target="_blank" href="https://discord.gg/DSCtVQs6Ja" >
+                            <a target="_blank"  rel="noreferrer" href="https://discord.gg/DSCtVQs6Ja" >
                                 <Image width={50} height={50} src="/discord.png" className="cursor-poniter"/>     
                             </a>        
                         </div>
