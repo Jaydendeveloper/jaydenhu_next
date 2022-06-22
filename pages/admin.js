@@ -540,15 +540,9 @@ if(user){
                 {options &&
                 //OPTIONS
                     <>
-
-                    <form className="themeform flex text-white justify-center">                       
-                    <h1>Code theme (not working)</h1>
-                    <input type="radio" name="theme" value={"duotone-space"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Duotone-space (default) <br />
-                    <input type="radio" name="theme" value={"dark"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>Dark <br />
-                    <input type="radio" name="theme" value={"dark2"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
-                    <input type="radio" name="theme" value={"dark3"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
-                    <input type="radio" name="theme" value={"dark4"} onClick={(radio) => {setTheme(radio.target.defaultValue)}}/>dark <br />
-                    </form>       
+                    <div className="flex justify-center relative top-[250px]">
+                    <div className="text-white text-[30px]">This is currently empty, come back later....</div>
+                    </div>
                     </>
                 }
                 {screenLoading && 
