@@ -13,6 +13,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { HomeIcon } from '@heroicons/react/outline'
 import {app, user, auth, db} from "./fbconfig"
+import Head from "next/head";
 
 const Loginpage = () => {
 
@@ -35,6 +36,11 @@ useEffect(() => {
    
 return (
         <div>
+            <Head>
+                <title>Jayden.hu</title>
+                <meta name="description" content="jayden.hu - Login" />
+                <link rel="icon" href="/logo.png"/>
+            </Head>
             <div>
                 <Link href={'/'}>
                     <HomeIcon className='text-[#38b4c8] absolute cursor-pointer h-10 left-5 top-5 pop-out'/>

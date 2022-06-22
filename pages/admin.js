@@ -31,6 +31,7 @@ import 'prismjs/components/prism-clike';
 import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism-dark.css';
 import {app, user, auth, db} from "./fbconfig"
+import Head from "next/head";
 
 const Admin = () => {
 const auth = getAuth();
@@ -118,6 +119,12 @@ useEffect(() => {
 
 if(user){
     return (
+    <>    
+        <Head>
+            <title>Jayden.hu</title>
+            <meta name="description" content="jayden.hu - Admin" />
+            <link rel="icon" href="/logo.png"/>
+        </Head>
         <div>
             <div className='header h-14 bg-transparent border-none text-white'>
 
@@ -555,6 +562,7 @@ if(user){
                 </div>}
                 </div>
             </div>
+        </>
     );
 
 }

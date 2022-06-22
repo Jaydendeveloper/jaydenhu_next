@@ -12,6 +12,7 @@ import {
     orderBy, serverTimestamp, getDoc,
     updateDoc,
 } from 'firebase/firestore';
+import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import {app, user, auth, db} from "./fbconfig"
@@ -93,6 +94,15 @@ const Portfolio = () => {
                     </div>
                   </div>
               ))}
+              <p className="relative text-center text-white text-xl mb-2">And much more other projects...</p>
+              <div className="flex justify-center mb-10">
+              <a target="_blank"  rel="noreferrer" href="https://github.com/Jaydendeveloper">
+                <div className="rounded-[50%] bg-white w-[50px] h-[50px] cursor-pointer">
+                  <Image width={50} height={55} src="/github.png"/>               
+              </div>
+              </a>
+              </div>
+
            </div>
         </div>
        </>
