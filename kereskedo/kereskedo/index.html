@@ -1,0 +1,107 @@
+<!--by Jayden 2021.12.24--> 
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kereskedő</title>
+    <link rel="icon" type="image/png" href="https://forum.see-game.com/seeimg/favicon.ico" sizes="32x32">
+    <link rel="stylesheet" href="style.css">
+    <script src="onclick.js"></script>
+</head>
+<body>
+   <script>
+      window.onload = function(){
+         cars();
+      }
+   </script>
+    <div>
+        <ul>
+            <li><a class="hoveranim" href="../kapcsolat/kapcsolat.html?version=20220107">Kapcsolat</a></li>
+            <li><a class="hoveranim" href="../admin/">Admin</a></li> 
+            <li><a class="active" href="karacsony.html?version=20220107">ingyen értékbecslés</a></li>           
+            <li><a class="hoveranim" href="karacsony.html?version=20220107">Karácsonyi minigame</a></li>
+            <li><a class="hoveranim" href="../index.html?version=20220107">Kezdőlap</a></li>
+            <h1 class="seelogo" style="float: left;"><a href="../index.html?version=20220107"><img class="seelogo" src="../media/seelogo.png" alt="seelogo"></a></h1>  
+        </ul>
+    </div>
+
+    <div class="content2">
+      <script>
+      var count = 1
+        setTimeout(demo, 500)
+        setTimeout(demo, 700)
+        setTimeout(demo, 900)
+        setTimeout(reset, 2000)
+        
+        setTimeout(demo, 2500)
+        setTimeout(demo, 2750)
+        setTimeout(demo, 3050)
+        
+        
+        var mousein = false
+        function demo() {
+           if(mousein) return
+           document.getElementById('demo' + count++)
+              .classList.toggle('hover')
+           
+        }
+        
+        function demo2() {
+           if(mousein) return
+           document.getElementById('demo2')
+              .classList.toggle('hover')
+        }
+        
+        function reset() {
+           count = 1
+           var hovers = document.querySelectorAll('.hover')
+           for(var i = 0; i < hovers.length; i++ ) {
+              hovers[i].classList.remove('hover')
+           }
+        }
+        
+        document.addEventListener('mouseover', function() {
+           mousein = true           ;reset()})
+      </script>
+<nav>
+   <menu>
+     <menuitem id="kocsid">
+       <a>Amilyen kocsid van</a>
+         <menu>
+               <menuitem id="Audi">
+                 <a>Audi</a>
+                  <menu>
+                    <menuitem><a>Audi</a></menuitem>
+                    <menuitem><a>Audi</a></menuitem>
+                    <menuitem><a>Audi</a></menuitem>
+                    <menuitem><a>Audi</a></menuitem>
+                  </menu>  
+               </menuitem>
+               <menuitem id="BMW">
+                  <a>BMW</a>
+                  <menu>
+                     <menuitem><a class="e38">750 e38</a></menuitem>
+                     <menuitem><a>760 e65</a></menuitem>
+                     <menuitem><a>M3 e46</a></menuitem>
+                     <menuitem><a>M3 e62</a></menuitem>
+                  </menu>  
+               </menuitem>
+               <menuitem id="Dodge">
+                  <a>Dodge</a>
+                  <menu>
+                     <menuitem onclick=""><a>Dodge</a></menuitem>
+                     <menuitem><a>Dodge</a></menuitem>
+                     <menuitem><a>Dodge</a></menuitem>
+                     <menuitem><a>Dodge</a></menuitem>
+                  </menu>
+               </menuitem>
+         </menu>
+</nav>
+ <div>
+    <hr>
+ <p id="e38value" class="carvalue e38hidden">Ez szart sem ér öreg, egy százast adok érte</p>
+</div>
+</body>
+</html>

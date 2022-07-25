@@ -1,0 +1,60 @@
+<!-- by Jayden 2021.12.30 -->
+
+<html lang="en">
+<head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTVQMHJ26R"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YTVQMHJ26R');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Cache-Control no-cache,must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control max-age=0, must-revalidate">
+    <link rel="icon" type="image/png" href="https://forum.see-game.com/seeimg/favicon.ico" sizes="32x32">
+    <link rel="stylesheet" href="style.css">
+    <script src="../scripts/money.js"></script>
+    <title>Clicker</title>
+</head>
+<body>
+    <script>
+        window.addEventListener('load', saved(), savedata())       
+        </script>
+    <div id="nav">
+        <ul>
+            <li><a class="hoveranim right" href="../kapcsolat/kapcsolat.html?version=20220107">Kapcsolat</a></li>
+            <li><a class="hoveranim" href="../admin/">Admin</a></li> 
+            <li><a class="active hoveranim right" href="index.html">Clicker minigame</a></li> 
+            <li><a class="hoveranim right" href="../kereskedo/tuning/">Tuning kalkulátor</a></li> 
+            <li><a class="hoveranim right" href="../kereskedo/ertekbecslo/">Jármű felvásárlás</a></li> 
+            <li><a class="hoveranim right" href="../minigame/karacsony.html?version=20220107">Karácsonyi minigame</a></li>
+            <li><a class="hoveranim right" href="../index.html?version=?20220107">Kezdőlap</a></li>  
+        </ul>
+    </div>
+</body>
+<body>
+<div id="yourmoney"></div>
+<h3 class="text2"><center>Út a rajsághoz</center></h3>
+<center><button id="click" onclick="clicked()">Click!</button></center>
+<p><center>(ne frissíts rá mert megjárod)</center></p>
+</div>
+<div>
+    <main class="buy-grid footer">
+        <article id="szemuveg" class="buyable szemuvegbg" onclick="szemuveg(); bought(); win();"><h4 style="margin-left: 1%;">Napszemüveg</h4><br><p style="margin-top: -10%; margin-left: 1%;">Ha menő vagy éjjel is hordod.<br> Ár:100.000</p></article>
+        <article id="glock" class="buyable glockbg" onclick="glock(); bought(); win();"><h4 style="margin-left: 1%;">Glock</h4><br><p style="margin-top: -10%; margin-left: 1%;">Nem mered nem bejelenteni.<br>Ár:300.000</p></h4></article>
+        <article id="kes" class="buyable kesbg" onclick="kes(); bought(); win();"><h4 style="margin-left: 1%;">Kés</h4><br><p style="margin-top: -10%; margin-left: 1%;">"Ez nem tőr, ez gyroszoskard!"<br>Ár:200.000</p></h4></article>
+        <article id="m5e60" class="buyable m5e60bg" onclick="m5e60(); bought(); win();"><h4 style="margin-left: 1%;">BMW M5 e60</h4><br><p style="margin-top: -10%; margin-left: 1%;">Kötelező kellék<br>Ár:2.200.000</p></article>
+        <article id="amgone" class="buyable amgonebg" onclick="amgone(); bought(); win();"><h4 style="margin-left: 1%;">AMG One</h4><br><p style="margin-top: -10%; margin-left: 1%;">Ritka, és kurva drága. <br> Kihagyhatatlan. <br> Ár:5.000.000$</p></article>
+        <article id="dog" class="buyable dogbg" onclick="dog(); bought(); win();"><h4 style="margin-left: 1%;">Kutya</h4><br><p style="margin-top: -10%; margin-left: 1%;">Olyan mint te<br>Ár:1.000.000</p></h4></article>
+        <article id="garazs" class="buyable garazsbg" onclick="garazs(); bought(); win();"><h4 style="margin-left: 1%;">Nagy garázs</h4><br><p style="margin-top: -10%; margin-left: 1%;">Nagy de nem eléggé.<br> Ár:1.500.000</p></article>
+        <article id="life" class="buyable lifebg" onclick="life(); bought(); win();"><h4 style="margin-left: 1%;">Élet</h4><br><p style="margin-top: -10%; margin-left: 1%;">Nem árt ha van.<br> Ár:10.000.000</p></article>
+        <article id="gnihaz" class="buyable grid-col-span2 gnihazbg" onclick="gnihaz(); bought(); win();"><h4 style="margin-left: 1%;">GNI ház</h4><br><p>Mindenki tudja, hogy a legnagyobb gangsterek itt laknak. <br>Ár:6.000.000</p></article>
+    </main>
+</div>
+</body>
+</html>

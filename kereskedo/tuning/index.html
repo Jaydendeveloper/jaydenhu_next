@@ -1,0 +1,346 @@
+<!-- by Jayden 2021.12.28. -->
+
+<html lang="en">
+<head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YTVQMHJ26R"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YTVQMHJ26R');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Cache-Control: must-revalidate">    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kereskedő</title>
+    <link rel="icon" type="image/png" href="https://forum.see-game.com/seeimg/favicon.ico" sizes="32x32">
+    <link rel="stylesheet" href="../style.css">
+    <script src="../../scripts/dropdown.js"></script>
+    <script src="../../scripts/calculate.js"></script>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a class="hoveranim" href="../../kapcsolat/kapcsolat.html?version=2021291204">Kapcsolat</a></li>
+            <li><a class="hoveranim" href="../../admin/">Admin</a></li> 
+            <li><a class="hoveranim right" href="../../clicker/">Clicker minigame</a></li>         
+            <li><a class="active hoveranim" href="../tuning/">Tuning kalkulátor</a></li> 
+            <li><a class="hoveranim" href="../ertekbecslo/">Jármű felvásárlás</a></li> 
+            <li><a class="hoveranim" href="../../minigame/karacsony.html?version=2021291204">Karácsonyi minigame</a></li>
+            <li><a class="hoveranim" href="../../index.html?version=2021291204">Kezdőlap</a></li>
+            <h1 class="seelogo" style="float: left;"><a href="../index.html?version=2021291204"><img class="seelogo" src="../../media/seelogo.png" alt="seelogo"></a></h1>        </ul>
+    </div>
+
+    <!--                   Tuningok                                -->
+<section>
+    <p id="motortext">Motor:</p>
+    <div class="motordiv">
+        <label>
+            <select id="motor" onchange="calculate(this.value);">
+                <option selected>Gyári</option>
+                <option value="motorvenom">Venom</option>
+                <option value="motorverseny">Verseny</option>
+                <option value="motorprofi">Profi</option>
+                <option value="motoralap">Alap</option>
+            </select>
+        </label>
+      </div>
+      <p id="turbotext">Turbo/Supercharger:</p>
+    <div class="turbodiv">
+        <label>
+            <select id="turbo" onchange="calculate(this.value);">
+                <option selected>Gyári</option>
+                <option value="turbovenomsd">Venom+Supercharger</option>
+                <option value="turbovenom">Venom</option>
+                <option value="turboverseny">Verseny</option>
+                <option value="turboprofi">Profi</option>
+                <option value="turboalap">Alap</option>
+            </select>
+        </label>
+      </div>
+        <p id="ecutext">ECU:</p>
+        <div class="ecudiv">
+            <label>
+                <select id="ecu" onchange="calculate(this.value);">
+                    <option selected>Gyári</option>
+                    <option value="ecuvenom">Venom</option>
+                    <option value="ecuverseny">Verseny</option>
+                    <option value="ecuprofi">Profi</option>
+                    <option value="ecualap">Alap</option>
+                </select>
+            </label>
+          </div>
+          <p id="valtotext">Váltó:</p>
+          <div class="valtodiv">
+              <label>
+                  <select id="valto" onchange="calculate(this.value);">
+                      <option selected>Tuning</option>
+                      <option value="valtovenom">Venom</option>
+                      <option value="valtoverseny">Verseny</option>
+                      <option value="valtoprofi">Profi</option>
+                      <option value="valtoalap">Alap</option>
+                  </select>
+              </label>
+            </div>
+            <p id="felfuggesztestext">Felfüggesztés:</p>
+            <div class="felfuggesztesdiv">
+                <label>
+                    <select id="felfuggesztes" onchange="calculate(this.value);">
+                        <option selected>Tuning</option>
+                        <option value="felfuggesztesvenom">Venom</option>
+                        <option value="felfuggesztesverseny">Verseny</option>
+                        <option value="felfuggesztesprofi">Profi</option>
+                        <option value="felfuggesztesalap">Alap</option>
+                        <option value="felfuggesztesgyari">Gyári</option>
+                    </select>
+                </label>
+              </div>
+              <p id="fektext">Fék:</p>
+              <div class="fekdiv">
+                  <label>
+                      <select id="fek" onchange="calculate(this.value);">
+                          <option selected>Tuning</option>
+                          <option value="fekvenom">Venom</option>
+                          <option value="fekverseny">Verseny</option>
+                          <option value="fekprofi">Profi</option>
+                          <option value="fekalap">Alap</option>
+                          <option value="fekgyari">Gyári</option>
+                      </select>
+                  </label>
+                </div>
+                <p id="gumitext">Gumi:</p>
+                <div class="gumidiv">
+                    <label>
+                        <select id="gumi" onchange="calculate(this.value);">
+                            <option selected>Tuning</option>
+                            <option value="gumivenom">Venom</option>
+                            <option value="gumiverseny">Verseny</option>
+                            <option value="gumiprofi">Profi</option>
+                            <option value="gumialap">Alap</option>
+                            <option value="gumigyari">Gyári</option>
+                        </select>
+                    </label>
+                  </div>
+                  <p id="weightext">Súlycsökkentés:</p>
+                <div class="weightdiv">
+                    <label>
+                        <select id="weight" onchange="calculate(this.value);">
+                            <option selected>Tuning</option>
+                            <option value="weightvenom">Venom</option>
+                            <option value="weightverseny">Verseny</option>
+                            <option value="weightprofi">Profi</option>
+                            <option value="weightalap">Alap</option>
+                            <option value="weightgyari">Gyári</option>
+                        </select>
+                    </label>
+                  </div>
+
+
+
+<!--                   extrák                                 -->
+
+<p id="lsdtext">LSD ajtó:</p>
+<div class="lsddiv">
+    <label>
+        <select id="lsd" onchange="calculate(this.value);">
+            <option value="nincs" selected>Nincs</option>
+            <option value="lsdvan">Van</option>
+        </select>
+    </label>
+  </div>
+  <p id="lampatext">Lámpa csere:</p>
+<div class="lampadiv">
+    <label>
+        <select id="lampa" onchange="calculate(this.value);">
+            <option value="nincs" selected>Nincs</option>
+            <option value="lampavan" >Van</option>
+        </select>
+    </label>
+  </div>
+    <p id="pjtext">Paintjob:</p>
+    <div class="pjdiv">
+        <label>
+            <select id="pj" onchange="calculate(this.value);">
+                <option value="nincs" selected>Nincs</option>
+                <option value="pjvan">Van</option>
+            </select>
+        </label>
+      </div>
+      <p id="wheelpjtext">Kerék paintjob:</p>
+      <div class="wheelpjdiv">
+          <label>
+              <select id="wheelpj" onchange="calculate(this.value);">
+                  <option value="Nincs" selected>Nincs</option>
+                  <option value="wheelpjvan">Van</option>
+              </select>
+          </label>
+        </div>
+        <p id="frontwheeltext">Első kerék szélesség:</p>
+        <div class="frontwheeldiv">
+            <label>
+                <select id="frontwheel" onchange="calculate(this.value);">
+                    <option selected>Gyári</option>
+                    <option value="fwheelextrakeskeny">Extra keskeny</option>
+                    <option value="fwheelkeskeny">Keskeny</option>
+                    <option value="fwheelnormal">Normál</option>
+                    <option value="fwheelszeles">Széles</option>
+                    <option value="fwheelextraszeles">Extra széles</option>
+                </select>
+            </label>
+          </div>
+          <p id="backwheeltext">Hátsó kerék szélesség:</p>
+          <div class="backwheeldiv">
+              <label>
+                  <select id="backwheel" onchange="calculate(this.value);">
+                      <option selected>Gyári</option>
+                      <option value="backwheelextrakeskeny">Extra keskeny</option>
+                      <option value="backwheelkeskeny">Keskeny</option>
+                      <option value="backwheelnormal">Normál</option>
+                      <option value="backwheelszeles">Széles</option>
+                      <option value="backwheelextraszeles">Extra széles</option>
+                  </select>
+              </label>
+            </div>
+            <p id="meghajtastext">Meghajtás:</p>
+            <div class="meghajtasdiv">
+                <label>
+                    <select id="meghajtas" onchange="calculate(this.value);">
+                        <option value="hatso" selected>Hátsókerkék</option>
+                        <option value="osszkerek">Összkerék</option>
+                        <option value="elso">Elsőkerék</option>
+                        <option value="kapcsolhato">Kapcsolható</option>
+                    </select>
+                </label>
+              </div>
+              <p id="turntext">Fordulókör:</p>
+            <div class="turndiv">
+                <label>
+                    <select id="turn" onchange="calculate(this.value);">
+                        <option selected>Gyári</option>
+                        <option value="turn30">30°</option>
+                        <option value="turn40">40°</option>
+                        <option value="turn50">50°</option>
+                        <option value="turn60">60°</option>
+                    </select>
+                </label>
+              </div>
+              <p id="differencialtext">Önzáró differenciálmű:</p>
+              <div class="differencialdiv">
+                <label>
+                    <select id="differencial" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="differencialvan">Van</option>
+                    </select>
+                </label>
+              </div>
+              <p id="offroadtext">Offroad optimalizáció:</p>
+              <div class="offroaddiv">
+                <label>
+                    <select id="offroad" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="offroadterep">Terep beállítás</option>
+                        <option value="offroadmurva">Murva beállítás</option>
+                    </select>
+                </label>
+              </div>
+              <p id="rendszamtext">Egyedi rendszám:</p>
+              <div class="rendszamdiv">
+                <label>
+                    <select id="rendszam" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="rendszamvan">Van</option>
+                    </select>
+                </label>
+              </div>
+              <p id="trafitext">Traffipax radar:</p>
+              <div class="trafidiv">
+                <label>
+                    <select id="trafi" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="trafivan">Van</option>
+                    </select>
+                </label>
+              </div>
+              <p id="varianstext">Variáns:</p>
+              <div class="variansdiv">
+                <label>
+                    <select id="varians" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="variansvan">Van</option>
+                    </select>
+                </label>
+              </div>
+              <p id="parkkartyatext">Parkkártya:</p>
+              <div class="parkkartyadiv">
+                <label>
+                    <select id="parkkartya" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="parkkartyavan">Van</option>
+                    </select>
+                </label>
+              </div>
+              <p id="dudatext">Egyedi duda:</p>
+              <div class="dudadiv"> 
+                <label>
+                    <select id="duda" onchange="calculate(this.value);">
+                        <option value="nincs" selected>Nincs</option>
+                        <option value="dudavan">Van</option>
+                    </select>
+                </label>
+              </div>
+              <p id="nitrotext">Nitro:</p>
+              <div class="nitrodiv">
+                <label>
+                    <select id="nitro" onchange="calculate(this.value);">
+                        <option selected>Nincs</option>
+                        <option value="nitro25">25%</option>
+                        <option value="nitro50">50%</option>
+                        <option value="nitro75">75%</option>
+                        <option value="nitro100">100%</option>
+                    </select>
+                </label>
+              </div>
+              <p id="szin1text">Szín1:</p>
+              <div class="szin1div">
+                <p>Átszínezem 
+                <input id="szin1" type="checkbox" onchange="getValue();">
+                <input type="color">
+            </p>
+              </div>
+              <p id="szin2text">Szín2:</p>
+              <div class="szin2div">
+                <p>Átszínezem:
+                <input type="checkbox" id="szin2">
+                <input type="color" name="szin2">
+            </p>
+              </div>
+              <p id="szin3text">kilóméteróra 1:</p>
+              <div class="szin3div">
+                <p>Átszínezem    
+                <input type="checkbox" id="szin3">
+                <input type="color" name="szin3">
+            </p>
+              </div>
+              <p id="szin4text">Kilóméteróra 2:</p>
+              <div class="szin4div">
+                <p>Átszínezem: 
+                <input type="checkbox" id="szin4">
+                <input type="color" name="szin4">
+            </p>
+              </div>
+</section>
+<button class="calculate" onclick=" getValue(); calculate(); display();">Kalkulálás</button>
+<button class="again" onClick="window.location.reload();">Újra</button>
+<h2 class="result">Összesen</h2>
+<h3 class="dollar">Dollár:</h3>
+<h5 id="dollartext" style="color: #7cc576;"></h5>
+<h3 class="pp">PP:</h3>
+<h5 id="pptext" style="color: #1E90FF;"></h5>
+<h4 id="infotext">Ha már egyszer kalkuláltál, az "újra" gombra kattintva tudsz rajta változtatni, másképp  nem fog működni.</h4>
+</body>
+</html>

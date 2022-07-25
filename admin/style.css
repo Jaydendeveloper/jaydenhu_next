@@ -1,0 +1,614 @@
+html body {
+  --dark: #121212;
+  background-color: var(--dark);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  color: white;
+  margin: 0%;
+}
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+h1 {
+  font-size: 80px;
+  margin: 10px 0 30px;
+  line-height: 70px;
+}
+h2 {
+  color: #7cc576;
+  line-height: 0px;
+}
+.background {
+  background-image: url("media/lvsign2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  color: white;
+  position: absolute;
+  top: 30%;
+  left: 3%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.pointer {
+  cursor: pointer;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
+ul {
+  background-color: transparent;
+}
+li {
+  float: right;
+  list-style-type: none;
+  margin: 10px;
+  border-radius: 10px;
+  padding: 10px;
+}
+a {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.hoveranim::after {
+  content: "";
+  position: absolute;
+  background-color: #7cc576;
+  height: 3px;
+  width: 0;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.hoveranim:hover {
+  color: #7cc576;
+}
+.hoveranim:hover::after {
+  width: 100%;
+}
+.active {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  background-color: #7cc576;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+
+.active {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.active::after {
+  content: "";
+  position: absolute;
+  background-color: #7cc576;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.active-red {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.active-red::after {
+  content: "";
+  position: absolute;
+  background-color: #a54242;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.active-fa {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.active-fa::after {
+  content: "";
+  position: absolute;
+  background-color: #efad5f;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.active-sa {
+  position: relative;
+  text-decoration: none;
+  color: white;
+}
+.active-sa::after {
+  content: "";
+  position: absolute;
+  background-color: #d93617;
+  height: 3px;
+  width: 100%;
+  left: 0;
+  bottom: -10px;
+  transition: 0.5s;
+}
+.seelogo {
+  height: 70px;
+}
+.margin {
+  margin-left: 10px;
+}
+button {
+  color: white;
+  padding: 10px 25px;
+  background: transparent;
+  border: 1px solid #7cc576;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+  width: 20rem;
+}
+#next {
+  position: fixed;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  margin-left: -10%;
+  margin-right: 0%;
+  bottom: 20;
+  border-radius: 24px 4px;
+  border: 1px solid #4565a1;
+}
+#next:hover {
+  background-color: #4565a1;
+}
+#sendpm {
+  border: 1px solid #eeff00;
+}
+#info {
+  margin-top: 5%;
+}
+#hibapont {
+  float: left;
+  position: fixed;
+  margin-left: 1%;
+  margin-top: -1%;
+}
+#alevel {
+  float: left;
+  position: fixed;
+  margin-right: 0%;
+  margin-left: 1%;
+  margin-top: 1%;
+}
+#goodanswers {
+  float: right;
+  position: fixed;
+  margin-left: 1%;
+  margin-top: 3%;
+}
+/*button:hover{
+    background-color: rgb(150, 42, 42);
+}*/
+p {
+  color: white;
+  text-align: left;
+}
+.footer {
+  position: absolute;
+}
+.fa {
+  color: white;
+  bottom: 55;
+  position: absolute;
+  margin-left: 480px;
+}
+#div1 {
+  font-size: 30px;
+}
+.anim1 {
+  font-size: 40px;
+  height: 20px;
+  animation: an 1s ease-out 1 both;
+  display: inline-block;
+}
+
+@keyframes an {
+  from {
+    opacity: 0;
+    transform: perspective(200px) translate3d(-15px, -30px, -150px)
+      rotate3d(1, -1, 0, 35deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(300px) translate3d(0, 0, 0);
+  }
+}
+.anim2 {
+  animation-duration: 3s;
+  animation-name: slidein;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%;
+  }
+
+  to {
+    margin-left: 20px;
+    width: 100%;
+  }
+}
+#pm {
+  display: table;
+  background-color: #7cc576;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 5%;
+  padding: 10px;
+}
+#secondpm {
+  display: table;
+  background-color: #7cc576;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 5%;
+  padding: 10px;
+}
+#vá {
+  display: table;
+  background-color: #4565a1;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 5%;
+  padding: 10px;
+}
+#ban {
+  display: table;
+  background-color: #a53838;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 5%;
+  padding: 10px;
+}
+#kick {
+  display: table;
+  background-color: #c9770c;
+  width: fit-content;
+  height: fit-content;
+  margin-left: 5%;
+  padding: 10px;
+}
+#pname {
+  margin-bottom: 0%;
+  margin-top: 3%;
+  margin-left: 5%;
+  font-size: 10px;
+}
+#pnamevá {
+  margin-bottom: 0%;
+  margin-top: 1%;
+  margin-left: 5%;
+  font-size: 10px;
+}
+#aname {
+  margin-top: 1%;
+  margin-left: 5%;
+  font-size: 10px;
+}
+#time {
+  margin-top: 1%;
+  margin-left: 5%;
+  font-size: 10px;
+}
+
+#buttongrid {
+  display: grid;
+  gap: 20px;
+  margin-top: 5%;
+  margin-bottom: 0%;
+  width: 100%;
+}
+.button {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+.button:hover {
+  background-color: #7cc576;
+}
+#ajail {
+  grid-column-start: 2;
+  grid-column-end: 2;
+}
+@media (min-width: 40em) {
+  #buttongrid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .seelogo {
+    display: none;
+  }
+}
+@media (min-width: 1600px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1500px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (min-width: 1024px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (min-width: 1900px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+@media (max-width: 1710px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1350px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+  #alevel {
+    margin-top: 2%;
+  }
+  #goodanswers {
+    margin-top: 6%;
+  }
+}
+@media (max-width: 1016px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 1450) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media (max-width: 1016px) {
+    #buttongrid {
+      gap: 0;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+/* TELEFON */
+@media (max-width: 680px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .seelogo {
+    display: none;
+  }
+  nav {
+    display: none;
+  }
+  #next {
+    margin-left: -40%;
+  }
+  #goodanswers {
+    margin-top: -4.5%;
+    margin-left: 67%;
+  }
+  #alevel {
+    margin-top: -4.5%;
+    margin-left: 31%;
+  }
+  #hibapont {
+    margin-top: -4.5%;
+  }
+  #info {
+    margin-top: 10%;
+  }
+  .active-red::after {
+    content: "";
+    position: absolute;
+    background-color: #a54242;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+
+  @media (max-width: 500px) {
+    .seelogo {
+      display: none;
+    }
+    .switch {
+      margin-top: 20px;
+    }
+    #calcualtor {
+      display: none;
+    }
+    li {
+      display: grid;
+      float: none;
+      margin: 10px;
+      border-radius: 10px;
+      padding: 5px;
+      margin-left: -40px;
+      margin-right: 0px;
+    }
+    a {
+      border-radius: 20px;
+      color: white;
+    }
+    a::after {
+      content: "";
+      position: absolute;
+      background-color: #7cc576;
+      height: 3px;
+      width: 0;
+      left: 0;
+      bottom: -10px;
+      transition: 0.6s;
+    }
+    h1 {
+      font-size: 50px;
+      margin: 10px 0 30px;
+      line-height: 50px;
+    }
+    h2 {
+      color: #7cc576;
+    }
+    .content {
+      color: white;
+      position: absolute;
+      top: 30%;
+      left: 8%;
+      transform: translateY(-50%);
+      z-index: 2;
+    }
+    .footer {
+      font-size: 30px;
+      margin-left: 10px;
+      position: absolute;
+      bottom: 5%;
+      width: 90%;
+      height: 60px;
+    }
+    #next {
+      position: initial;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      margin-left: 2%;
+      margin-right: 0%;
+      bottom: 20;
+      border-radius: 24px 4px;
+      border: 1px solid #4565a1;
+    }
+  }
+  #goodanswers {
+    margin-top: -20%;
+    margin-left: 64%;
+  }
+  #alevel {
+    margin-top: -20%;
+    margin-left: 31%;
+  }
+  #hibapont {
+    margin-top: -20%;
+  }
+  #info {
+    margin-top: 15%;
+  }
+  #pmdiv {
+    margin-right: 9%;
+  }
+}
+
+@media (max-width: 376px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .seelogo {
+    display: none;
+  }
+  nav {
+    display: none;
+  }
+  #next {
+    margin-left: 0%;
+  }
+  #goodanswers {
+    margin-top: -4.5%;
+    margin-left: 64%;
+  }
+  #alevel {
+    margin-top: -4.5%;
+    margin-left: 31%;
+  }
+  #hibapont {
+    margin-top: -5%;
+  }
+  #info {
+    margin-top: 10%;
+  }
+  .active-red::after {
+    content: "";
+    position: absolute;
+    background-color: #a54242;
+    height: 3px;
+    width: 25%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+}
+@media (max-width: 361px) {
+  #buttongrid {
+    gap: 0;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .seelogo {
+    display: none;
+  }
+  nav {
+    display: none;
+  }
+  #next {
+    margin-left: 0%;
+  }
+  #goodanswers {
+    top: 0%;
+    margin-left: 65%;
+  }
+  #alevel {
+    top: 0%;
+    margin-left: 30%;
+  }
+  #hibapont {
+    margin-left: 0%;
+    top: 0.3%;
+  }
+  #info {
+    margin-top: 15%;
+  }
+  .active-red::after {
+    content: "";
+    position: absolute;
+    background-color: #a54242;
+    height: 3px;
+    width: 100%;
+    left: 0;
+    bottom: -10px;
+    transition: 0.5s;
+  }
+}

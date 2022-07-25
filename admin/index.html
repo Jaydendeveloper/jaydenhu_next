@@ -1,0 +1,76 @@
+<html lang="en">
+    <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async="" src="https://www.googletagmanager.com/gtag/js?id=G-YTVQMHJ26R"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YTVQMHJ26R');
+    </script>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control no-cache,must-revalidate">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="icon" type="image/png" href="https://forum.see-game.com/seeimg/favicon.ico" sizes="32x32">
+    <script src="admin.js"></script>
+</head>
+
+<body vlink="black" alink="black" link="black">
+    <script>
+        window.onload = function() {
+            let pm = ''
+            getPM();
+            getPname();
+            getcurrentpname();
+            getaname();
+            getTime();
+            alevel();
+            };
+    </script>
+    <nav>
+        <ul>
+            <li><a class="hoveranim" href="../kapcsolat/kapcsolat.html?version=20220107">Kapcsolat</a></li>
+            <li><a class="active hoveranim" href="../admin/">Admin</a></li> 
+            <li><a class="hoveranim" href="../clicker/">Clicker minigame</a></li> 
+            <li id="calculator"><a class="hoveranim" href="../kereskedo/tuning/">Tuning kalkulátor</a></li> 
+            <li><a class="hoveranim" href="../kereskedo/ertekbecslo">Jármű felvásárlás</a></li>
+            <li><a class="hoveranim" href="../minigame/karacsony.html?version=20220107">Karácsonyi minigame</a></li><a class="hoveranim" href="../minigame/karacsony.html?version=20220107">
+            </a><li><a class="hoveranim" href="../minigame/karacsony.html?version=20220107"></a><a class=" hoveranim" href="../index.html?version=20220107">Kezdőlap</a></li>
+ 
+            <h1 class="seelogo" style="float: left;"><a href="index.html?version=20220107"><img class="seelogo" src="../media/seelogo.png" alt="seelogo"></a></h1>  
+        </ul>
+    </nav>
+<div id="alevel"></div>
+<div id="goodanswers"></div>
+<div id="hibapont"></div>
+    <div id="info">
+    <h2><center>Dolgozz helyettem!</center></h2>
+    <h5><center>Az egyszerűség kedvéért most a legtöbb játékos igazat mond.</center></h5>
+    <h5><center>A cél a Szuperadmin, hajrá!</center></h5>
+</div>
+<div id="pmdiv"><p id="pname">Peter Trader 2022-1-19 15:10:59</p> <h3 id="pm">Szia, bebuggoltam a sprinter be és nem tudok mozogni.</h3>
+<div id="buttongrid">
+<button class="button" onclick="fixveh(); badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">Fix</button>
+<button class="button" onclick="agyogyit(); badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">agyogyit</button>
+<button class="button" onclick="badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">asegit</button>
+<button class="button" onclick="badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">unflip</button>
+<button class="button" onclick="badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">vhspawn</button>
+<button class="button" onclick="kickanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">kick</button>
+<button class="button" onclick="badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">adminjail</button>
+<button class="button" onclick="bananswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">ban</button>
+<button class="button" onclick="badanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">lerobbant</button>
+<button class="button" onclick="goodanswer(); getcurrentpname(); getaname(); getpname(); gameover(); alevel();">get</button></div></div>
+<div id="valaszdiv" class=""></div>
+<div id="bankick"></div>
+<div id="nextPM">
+    <center><button id="next" onclick="nextPM(); getTime(); getPname(); getcurrentpname(); vanish(); alevel();">Következő PM</button></center>
+</div>
+ 
+ 
+</body></html>
