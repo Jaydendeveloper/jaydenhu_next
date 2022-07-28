@@ -32,6 +32,7 @@ import 'prismjs/components/prism-javascript';
 import 'prismjs/themes/prism-dark.css';
 import {app, user, auth, db} from "./fbconfig"
 import Head from "next/head";
+import { getAnalytics, setUserProperties } from "firebase/analytics";
 
 const Admin = () => {
 const auth = getAuth();
@@ -75,6 +76,9 @@ const colRef = collection(db, 'posts');
             }else if(userplace !== null){
                 setScreenLoading(false)
                 userplace.innerHTML = `Welcome, ${user.displayName || user.email}`
+                const analytics = getAnalytics();
+                setUserProperties(analytics, { highscore: 1500 });
+                console.log(user)
             } 
           }
         },[]);

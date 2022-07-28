@@ -1,6 +1,6 @@
 
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, setUserProperties } from "firebase/analytics";
 import {
     getAuth,
   } from 'firebase/auth'
@@ -13,6 +13,10 @@ const firebaseConfig = {
     messagingSenderId: "807526322828",
     appId: "1:807526322828:web:e9f192f995f8cd9dede1a9"
   };
+
+
+export const app = initializeApp(firebaseConfig);  
+export const db = getFirestore()
   
 
 const fbconfig = () => {
@@ -20,6 +24,4 @@ const fbconfig = () => {
 
 }
 
-export const app = initializeApp(firebaseConfig);  
-export const db = getFirestore()
 export default fbconfig;

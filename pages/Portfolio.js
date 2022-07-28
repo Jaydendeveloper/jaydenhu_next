@@ -71,7 +71,7 @@ const Portfolio = () => {
             <div className="mt-10 flex flex-wrap flex-col bottom-20 md:gap-5 lg:gap-5 md:flex-col">
                 {posts.map(post=>(
 
-                 createdAtYear = new Date(post.created_at.seconds*1000).getFullYear(),
+                  createdAtYear = new Date(post.created_at.seconds*1000).getFullYear(),
                   createdAtMonth = new Date(post.created_at.seconds*1000).getMonth() +1,
                   createdAtMonths = ('0'+ createdAtMonth).slice(-2),
                   createdAtDate = new Date(post.created_at.seconds*1000).getDate(),
@@ -98,7 +98,7 @@ const Portfolio = () => {
               <div className="flex justify-center mb-10">
               <a target="_blank"  rel="noreferrer" href="https://github.com/Jaydendeveloper">
                 <div className="rounded-[50%] bg-white w-[50px] h-[50px] cursor-pointer">
-                  <Image width={50} height={55} src="/github.png"/>               
+                  <Image width={50} height={55} src="/github.png"/>              
               </div>
               </a>
               </div>
